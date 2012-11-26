@@ -1,0 +1,44 @@
+#! /usr/bin/env bash
+
+# ------------------------------------------------------------------------------
+#
+# Ther reportor program.
+#
+# yeqiming@gmail.com
+#
+# 11/08/12
+#
+# ------------------------------------------------------------------------------
+
+MASTER_ADDRESS="tim.ye.ext@nsn.com"
+MAIL_FILE="$(mktemp)"
+DAYS_LEFT_TO_WEEKEND="$(expr 6 - $(date '+%u'))"
+
+print_date () {
+    local _date=$(date '+%A')
+    echo -n "It's ${_date} today, "
+    [[ ${DAYS_LEFT_TO_WEEKEND} -gt 0 ]] && \
+        echo "${DAYS_LEFT_TO_WEEKEND} day(s) left to weekend." || \
+        echo "it's the weekend!"
+}
+
+# ------------- Message body --------------------
+cat > ${MAIL_FILE} <<EOF
+
+$(print_date)
+
+Week number of the year is: $(date '+%V').
+
+My indentity:
+$(ifconfig | awk '/eth0/ { getline ; print $2}')
+
+Have a nice day sir, here's your daily dose:
+
+$(fortune)
+
+EOF
+# ------------- Message body --------------------
+
+cat ${MAIL_FILE} | mutt -s "Good day on $(date '+%D')" "${MASTER_ADDRESS}"
+
+rm -f ${MAIL_FILE}
