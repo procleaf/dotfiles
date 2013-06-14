@@ -4,13 +4,13 @@
 #
 # Ther reportor program.
 #
-# yeqiming@gmail.com
+# admin@gmail.com
 #
 # 11/08/12
 #
 # ------------------------------------------------------------------------------
 
-MASTER_ADDRESS="tim.ye.ext@nsn.com"
+MASTER_ADDRESS="tim.ye@nsn.com"
 MAIL_FILE="$(mktemp)"
 DAYS_LEFT_TO_WEEKEND="$(expr 6 - $(date '+%u'))"
 
