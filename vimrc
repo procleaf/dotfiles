@@ -110,8 +110,10 @@ set ai
 syntax on
 set incsearch
 set hls
-set guioptions=lg
 set nocompatible
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
 set clipboard=unnamed
 set laststatus=2
 set wildmode=list:longest
