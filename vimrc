@@ -53,7 +53,6 @@ set shiftwidth=2
 set expandtab
 
 iab <expr> __dts strftime("%D")
-iab <expr> @@ 'yeqiming@gmail.com'
 
 " ------------------- Settings -----------------------
 
