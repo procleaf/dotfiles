@@ -1,4 +1,6 @@
 
+
+# Source global definitions
 [[ -f /etc/bash.bashrc ]] && source /etc/bash.bashrc
 
 # Colors.
@@ -12,35 +14,43 @@ CYAN='\e[0;36m'
 WHITE='\e[0;37m'
 NO_COLOR='\e[m'
 
-
-export PS1="\[${CYAN}\]\u \W |\[${NO_COLOR}\] "
-export HISTSIZE=10000
-export HISTFILESIZE=10000
-export HISTTIMEFORMAT='%D %T '
-
-# -----------------------------[ Alias ] -----------------------------
+# -------------------------[ Alias ]-----------------------
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-alias ls='ls -F --color=tty'
-alias ll='ls -l'
-alias la='ls -a'
-alias grep='grep --color=auto'
-
 alias c='echo -e "\033[?6c"'
+alias grep='grep --color=auto'
+alias vi='vim'
+alias ls='ls -F'
+alias ls='ls -G'
 
+# Some alias from C shell.
+alias h='history 20'
 alias greenterm='setterm -foreground green -store'
 alias whiteterm='setterm -foreground white -store'
-
 alias irb='irb --simple-prompt'
 
-# Change to blink cursor on console login.
-[[ ${TERM} == 'linux' ]] && c
+# User specific aliases and functions
 
-[[ ${TERM} == 'screen' ]] && export LANG=C
+#[[ $TERM == 'screen' ]] && export LANG=C
 
-# Start fetchmail at login.
-#[[ ! -f ~/.fetchmail.pid && ! -z ${PS1} ]] && fetchmail -d 300
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
+export HISTSIZE=10000
+export HISTTIMEFORMAT='%D %T '
+export PS1="\[${GREEN}\]\u \W \$ \[${NO_COLOR}\]"
+export EDITOR='vi'
 
-umask 022
+# For 'ls' color.
+#export CLICOLOR=1
+#export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+# run fetchmail on startup.
+#[[ $(pidof fetchmail) ]] || fetchmail -d 300
+
+#umask 022
+
+# MacPorts Installer addition on 2014-03-09_at_10:17:51: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/X11/bin:/opt/local/sbin:/Users/tim/bin:$PATH
+
