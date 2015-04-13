@@ -40,7 +40,7 @@ alias irb='irb --simple-prompt'
 [[ ${TERM} == 'screen' ]] && export LANG=C
 
 # Start fetchmail at login.
-[[ ! -f ~/.fetchmail.pid && ! -z ${PS1} ]] && fetchmail -d 300
+#[[ ! -f ~/.fetchmail.pid && ! -z ${PS1} ]] && fetchmail -d 300
 
 
 umask 022
