@@ -1,0 +1,129 @@
+#! /usr/bin/env bash
+
+# ------------------------------------------------------------------------------
+#
+# Manage LAN server power.
+#
+# 03/19/14
+#
+# ------------------------------------------------------------------------------
+
+DIR=$(dirname $0)
+PROFILE="${DIR}/profile"
+
+#
+# Usage.
+#
+usage () {
+    local script_name=$(basename $0)
+    echo "${script_name}:"
+    echo "    - on [server]"
+    echo "    - off [server]"
+    echo "    - list"
+    echo "    - print"
+    return 0
+}
+
+#
+# List servers.
+#
+list () {
+    awk '$0 ~ /^[a-zA-Z0-9]/ { print $1 }' ${PROFILE}
+    return 0
+}
+
+#
+# Print profile
+#
+print_profile () {
+    cat ${PROFILE}
+}
+#
+# Parse user from profile.
+#
+get_user () {
+    local server=${1}
+    grep -i "^\<${server}\>" ${PROFILE} | awk '{ print $4 }'
+}
+
+#
+# Parse OS type from profile.
+#
+get_os () {
+    local server=${1}
+    grep -i "^\<${server}\>" ${PROFILE} | awk '{ print $2 }'
+}
+
+#
+# Parse MAC address from profile.
+#
+get_mac () {
+    local server=${1}
+    grep -i "^\<${server}\>" ${PROFILE} | awk '{ print $3 }'
+}
+
+#
+# Power on.
+#
+power_on () {
+    local server=${1}
+    local mac_address=$(get_mac ${server})
+    [[ -z ${mac_address} ]] && \
+        { echo "Server MAC address ${server} not found" ;
+            print_profile ; return 1 ; }
+    wakeonlan ${mac_address}
+    return 0
+}
+
+#
+# Power off.
+#
+power_off () {
+    local server=${1}
+    local user=$(get_user ${server})
+    local os=$(get_os ${server})
+
+    [[ -z ${user} || -z ${os} ]] && \
+        { echo "${server} user or OS type not found" ;
+            print_profile ; return 1 ; }
+
+    if [[ ${os} =~ bsd ]] ; then
+        local cmd="ssh ${user}@${server} poweroff"
+    elif [[ ${os} =~ linux|ubuntu ]] ; then
+        local cmd="ssh ${user}@${server} sudo poweroff"
+    else
+        echo "Unknown OS type: ${os}."
+        exit 23
+    fi
+    ${cmd} || \
+        echo "Power off ${server} failed."
+
+    return 0
+}
+    
+#
+# Main procedure.
+#
+main () {
+    local action=${1}
+    local server=${2}
+
+    [[ ${action} == "print" ]] && { print_profile ; return 0 ; }
+    [[ ${action} == "list" ]] && { list ; return 0 ; }
+
+    # "on" & "off" action need server name.
+    [[ -z ${server} ]] && { usage ; exit 67 ; }
+
+    if [[ ${action} == "on" ]] ; then
+        power_on ${server}
+    elif [[ ${action} == "off" ]] ; then
+        power_off ${server}
+    else
+        echo "Unknown action: ${action}"
+        exit 127
+    fi
+}
+
+[[ $# -lt 1 ]] && { usage ; exit 67 ; }
+
+main ${1} ${2}
