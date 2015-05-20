@@ -1,0 +1,143 @@
+#! /usr/bin/tclsh
+
+package require Expect
+
+set timeout 10
+set send_slow {1 0.5}
+set fwusr "netscreen"
+set fwpass "netscreen"
+set back_svr "10.11.108.251"
+
+if { $argc < 2 } {
+    puts "You need to at least provide the config file name."
+    return -1
+} else {
+    set conf_file [lindex $argv 0]
+    set local_user [lindex $argv 1]
+}
+switch -exact -- $local_user {
+    leaf { set local_ip "10.11.108.191/24" }
+    tzou { set local_ip "10.11.108.192/24" }
+    xuke { set local_ip "10.11.108.193/24" }
+    ztang { set local_ip "10.11.108.194/24" }
+    default { set local_ip "10.11.108.195/24" }
+}
+
+# Another way to get the tftp directory.
+set tftp_dir [exec "cat /etc/xinetd.d/tftp | grep **"]; # Need to complete.
+
+puts ""
+puts "The TFTP server's folder is $tftp_dir, start to touch and chmod file
+$conf_file....."
+puts ""
+
+# Touch the file before transaction.
+if { [exec "touch $tftp_dir/$conf_file && chmod 666 $tftp_dir/$conf_file"] } {
+    puts ""
+    puts "Touch file succeded, proceeding the next step."
+    puts ""
+} else {
+    error "Touch file failed, please make sure you have the privigle."
+    exit 1
+}
+
+proc login_fw { $box_name } {
+    # Login firewall.
+    puts ""
+    puts "Start to login firewall, please wait."
+    puts ""
+
+    spawn /root/nats/bin/go t $box_name
+    expect {
+        -re "Escape *" { send "\r"; after 500"; send "\r"; exp_continue
+}
+-re "login: " { send "$fwusr\r"; exp_continue }
+-re "password: " { send "$fwpass\r" }
+-re "connection refused" { error "Connect to box failed, please
+    logout before excute this script"; exit 1 }
+}
+}
+
+# Try to get interface information.
+expect {
+    -re ".*-> " {
+        set int_info [send "get interface"]
+        set mgt_exist [regxp -nocase ".*mgt +[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+/[0-9]+ +MGT +U.*" $int_info match]
+}
+}
+
+# Try to get the int in default trust zone of the box from the "devcie" file,
+# returns a value "trust_int".
+proc get_trust_int { } {
+    glob dev_file
+    set dev_file [exec cat /root/nats/device/$box_name]; # Need to complete.
+    if { regxp -nocase "**" $dev_file match $trust_i } {
+        return $trust_i
+} else {
+    error "Error when atempt to match trust interface in device file."
+}
+}
+
+# Try to get the switch port which the interface of the box laies on, returns a
+# value "swport".
+proc get_trust_swport { } {
+    if { regxp -nocase "**" $dev_file match $trust_s } {
+        return $trust_s
+} else {
+    error "Error when atempt to match trust switch port in device file."
+}
+}
+
+proc get_origin_vlan_id { } {
+    ; # Get the current vlan of the trust_int before any action for setting restore.
+}
+
+# Use the mgt as the transfer file interface if it exists.
+if { $mgt_exist } {
+    set trans_int "mgt"
+    set need_restore 0
+} else {
+    puts ""
+    puts "Finding mgt interface failed, use the default trust zone interface instead."
+    puts ""
+    set need_restore 1
+    set trans_int $trust_int
+    lappend commlist "set int $trans_int zone trust"; # Need to set zone first if the transfer interface is not "mgt".
+}
+
+puts ""
+puts "set the transfer interface to VLAN 1, please wait."
+puts ""
+if {[exec /root/nats/bin/setport.tcl 1 $box_name/$trans_int]} {
+    puts "set port succeeded, proceding the next step."
+} else {
+    error "set port failed, please try again or ask for help."
+}
+# Append the rest commands into the command list.
+lappend $comm_list {
+    set int $trans_int ip $trans_ip
+    save config to tftp $back_svr $conf_file
+}
+
+if { $need_restore } {
+    lappend $comm_list "set int $trans_int ip $origin_ip"; # Need to get the $origin_ip.
+}
+foreach command $comm_list {
+    expect {
+        -re ".*-> " { send $command }
+   }
+}       
+
+expect { 
+    -re "success" { send_user "Transfer complete successfully." }
+    -re "fail" { send_user "Transfer failed, please try again or ask for help." }
+}
+
+# Restore the setting if needed.
+if { $need_restore } {
+    exec "/root/nats/bin/setport.tcl $origin_vlan_id $box_name/$trans_int"
+} else {
+    puts "Procedure complete, shell comes back to you."
+}
+
+# The end.

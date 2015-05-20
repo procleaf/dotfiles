@@ -1,0 +1,19 @@
+#! /usr/bin/env tclsh
+
+source [file join [file dirname [info script]] "lib"]
+
+if {$argc > 1} {
+    puts stderr "Usage: print_file \[file]"
+    exit 3
+}
+if {$argc == 0} {
+    set f $argv0
+} else {
+    set f [lindex $argv 0]
+}
+set send_human {.01 .3 1 .05 2}
+set data [read_file $f]
+foreach line [split $data "\n"] {
+    send -h $line
+    send "\n"
+}

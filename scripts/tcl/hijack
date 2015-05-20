@@ -1,0 +1,56 @@
+#! /usr/bin/env tclsh
+#
+# -----------------------------------------------------------------------------
+# This script can be used to generate SSH key & copy it to remote host as
+# authorized keys.
+#
+# Author: col_yeqm@jupiter.china.nsn-net.net
+# Created at: 05/05/11
+# -----------------------------------------------------------------------------
+
+source [file join [file dirname [info script]] "lib"]
+
+if {$argc < 1} {
+    puts stderr "Usage: $argv0 \[host] \[password (default to VaaS1.1!)] \
+                \[user (default to root)]"
+    exit 255
+}
+
+set prompt "(.*)\[#>%$] "
+set host [lindex $argv 0]
+set pass [lindex $argv 1]
+set user [lindex $argv 2]
+set pub_key [file join $env(HOME) ".ssh/id_rsa.pub"]
+
+if {$user == ""} {
+    set user "root"
+}
+if {$pass == ""} {
+    set pass {VaaS1.1!}
+}
+
+
+if {[file exists $pub_key]} {
+    puts "--- Public key already exists, skip creating"
+} else {
+    gen_key
+}
+
+set key_str [read_file $pub_key]
+if {$key_str == 0 || $key_str == ""} {
+    puts stderr "Public key file unreadable or empty"
+    exit 255
+}
+
+# Start login.
+set spawn_id [login $user $pass $host 60]
+# Execute command on remote host.
+send "echo \"$key_str\" >> .ssh/authorized_keys\r" 
+sleep 0.5
+# Wait for the prompt and exit.
+expect {
+    -re "$prompt" {
+        puts "\n -- Mission complete -- \n"
+        send "exit\r"
+    }
+}
