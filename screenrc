@@ -25,10 +25,13 @@
 # This results in programs waiting for some timeout when
 # they start up - and this just keeps getting in my way.
 # I therefore unset the DISPLAY variable with this command:
-#  unsetenv DISPLAY
+unsetenv DISPLAY
 # Text Tools rule!  :-)
 #
 # setenv DISPLAY 'localhost:0.0'
+#
+# set DISPLAY to ':0' so I can switch between console & X.
+#setenv DISPLAY ':0'
 # setenv DISPLAY '127.0.0.1:0.0'
 #
 # Note:  the command "setenv DISPLAY ''"
@@ -146,7 +149,12 @@ escape ^Oo
 # terminfo xterm        'AF=\E[3%p1%dm:AB=\E[4%p1%dm'
 # Matthias Kopfermann <matthias_kopfermann@gmx.de> [020222]
 # make the cursor show up in red:
-#  termcapinfo linux "ve=\E[?25h\E[?17;0;64c" # red
+  #termcapinfo linux "ve=\E[?25h\E[?17;0;64c" # red
+  termcapinfo linux "ve=\E[?25h\E[?6c" # blinking full block cursor.
+  #termcapinfo linux "ve=\E\E[?6c" # red
+  #termcapinfo linux "ve=\E[?25h\E[?17;0;6c" # doesn't work.
+  #termcapinfo linux "ve=\033[?6c" # doesn't work.
+
 
 # ===============================================================
 # VARIABLES - Number values
@@ -791,7 +799,7 @@ bindkey -k k9 select 8
 # "abbreviating" in the processes themselves. :-)
 #
 
-bind V screen -t vmstat		0	vmstat 10
+bind V screen -t vim        1   vim
 bind H screen -t $myTOP		1	$myTOP
 
 #bind A screen -t asterisk	97	/usr/bin/sudo -u asterisk /usr/sbin/asterisk -cvvvvr

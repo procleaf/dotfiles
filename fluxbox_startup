@@ -1,0 +1,65 @@
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+#
+# This sets a black background
+
+#/usr/bin/fbsetroot -solid black
+
+# This shows the fluxbox-splash-screen
+# fbsetbg -C /usr/share/fluxbox/splash.jpg
+
+# Other examples. Check man xset for details.
+#
+# Turn off beeps:
+xset -b
+#
+# Increase the keyboard repeat-rate:
+# xset r rate 195 35
+#
+# Your own fonts-dir:
+# xset +fp "/home/leaf/.fonts"
+#
+# Your favourite mouse cursor:
+xsetroot -cursor_name right_ptr
+#
+# Change your keymap:
+# xmodmap "/home/leaf/.Xmodmap"
+
+
+
+# Applications you want to run with fluxbox.
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+#
+# unclutter -idle 2 &
+# bbrun &
+#wmnd -i eth0 &
+#wmnd -i eth1 &
+#wmmixer -w &
+#xclock -geometry 114x113-0+0 -analog -update 1 &
+rclock -geometry 114x113-0+0 -update 1 &
+#urxvt +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* -geometry 150x62+0+0 &
+#urxvt &
+#xeyes -geometry 116x103-0+133 &
+#xterm -geometry 129x51+0+0 &
+#xeyes &
+#wmcalclock &
+# Since NetworkManager is getting popular.
+#nm-applet &
+# idesk &
+
+
+# You can set your favourite wallpaper here if you don't want
+# to do it from your style.
+#
+#ibus &
+#scim -d
+#
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+
+fbsetbg -f /home/tim/_wall
+# exec /usr/bin/fluxbox
+# or if you want to keep a log:
+exec /usr/bin/fluxbox -verbose -log "/home/tim/.fluxbox/log"

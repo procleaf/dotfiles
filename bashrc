@@ -1,7 +1,8 @@
 
-
-# Source global definitions
-[[ -f /etc/bash.bashrc ]] && source /etc/bash.bashrc
+# Source global definitions.
+[[ -r /etc/bash.bashrc ]] && source /etc/bash.bashrc
+# Maybe bash_completion should not be source here.
+#[[ -r /etc/bash_completion ]] && source /etc/bash_completion
 
 # Colors.
 BLACK='\e[0;30m'
@@ -21,26 +22,29 @@ alias mv='mv -i'
 alias c='echo -e "\033[?6c"'
 alias grep='grep --color=auto'
 alias vi='vim'
-alias ls='ls -F'
-alias ls='ls -G'
+alias ls='ls --color=tty -F'
+alias ll='ls -l'
+alias la='ls -a'
+
+alias lynx='lynx --accept_all_cookies'
+alias mpv='mpv --save-position-on-quit --no-audio-display'
+alias emacs='emacs -nw'
+alias irb='irb --simple-prompt'
 
 # Some alias from C shell.
 alias h='history 20'
 alias greenterm='setterm -foreground green -store'
 alias whiteterm='setterm -foreground white -store'
-alias irb='irb --simple-prompt'
 
-# User specific aliases and functions
-
-#[[ $TERM == 'screen' ]] && export LANG=C
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+[[ $TERM == 'linux' ]] && c
 
 export HISTSIZE=10000
 export HISTTIMEFORMAT='%D %T '
-export PS1="\[${GREEN}\]\u \W \$ \[${NO_COLOR}\]"
+export PS1="\[${GREEN}\][\u@\h \w]\$ \[${NO_COLOR}\]"
 export EDITOR='vi'
+export PAGER='less'
+
+export LC_ALL=en_US.UTF-8
 
 # For 'ls' color.
 #export CLICOLOR=1
@@ -51,6 +55,9 @@ export EDITOR='vi'
 
 #umask 022
 
-# MacPorts Installer addition on 2014-03-09_at_10:17:51: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/X11/bin:/opt/local/sbin:/Users/tim/bin:$PATH
+export PATH=$PATH:/sbin:/usr/sbin:/home/tim/bin
+export PYTHONPATH=$PYTHONPATH:/home/tim/scripts/python/
 
+# Release 'stty' bind 'ctrl-s', 'ctrl-q'.
+stty stop undef
+stty start undef

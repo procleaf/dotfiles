@@ -1,0 +1,76 @@
+
+xterm*metaSendsEscape:             true
+XTerm*eightBitInput:               false
+Xterm*saveLines:                   4096
+xterm*locale:                      true
+xterm*utf8Title:                   true
+! xterm*menuLocale:       zh_CN.UTF-8
+! TrueType font
+! xterm*faceName: WenQuanYi Micro Hei Mono:pixelsize=12
+! xterm*faceNameDoublesize: xft: Wenquanyi bitmap song:pixelsize=12
+! xterm*faceName: DejaVu Sans Mono:style=Book:antialias=false
+! xterm*faceNameDoublesize: WenQuanYi Bitmap Song
+! English font
+xterm*faceName:                    DejaVu Sans Mono:antialias=True:pixelsize=12
+! Chinese font
+! need to install fonts-wqy-microhei:
+!    $ sudo apt-get install fonts-wqy-microhei
+xterm*faceNameDoublesize:          WenQuanYi Micro Hei:pixelsize=12
+! xterm*font: -misc-fixed-medium-r-normal-\*-18-120-100-100-c-90-iso10646-1
+! xterm*wideFont: -misc-fixed-medium-r-normal-\*-18-120-100-100-c-180-iso10646-1
+! xterm*faceSize: 8
+xterm*eightBitOutput:              true
+xterm*eightBitInput:               true
+xterm*eightBitSelectTypes:         true
+xterm*wideChars:                   true
+xterm*utf8:                        1
+xterm*termName:                    xterm-256color
+xterm*background:                  black
+xterm*foreground:                  white
+xterm*scrollKey:                   true
+
+! -----------------------------------------------------------------------------
+
+URxvt.scrollBar:                   false
+URxvt.savedLines:                  6000
+URxvt.urlLauncher:                 lynx
+URxvt.cursorBLink:                 false
+URxvt.background:                  black
+URxvt.foreground:                  white
+URxvt.font:                        -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+URxvt.borderLess:                  true
+
+! -----------------------------------------------------------------------------
+
+! urxvt*font: xft:ar pl new sung:style=Roman:pixelsize=8
+
+! URxvt.9x15bold,\
+!         -misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1,\
+!         -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1, \
+!         [codeset=JISX0208]xft:Kochi Gothic:antialias=false, \
+!         xft:Code2000:antialias=false
+
+
+
+! Mrxvt.transparent:              True
+! Mrxvt.shading:                  85
+! Mrxvt.transparentTabbar:        False
+! Mrxvt.profile0.tabTitle:        term1
+! Mrxvt.profile1.tabTitle:        term2
+! Mrxvt.profile2.tabTitle:        term3
+! Mrxvt.profile0.saveLines:       600
+! Mrxvt.profile1.saveLines:       600
+! Mrxvt.profile2.saveLines:       600
+! Mrxvt.profile0.Pixmap:        /home/images/vt0bg.xpm
+! Mrxvt.profile1.Pixmap:        /home/images/vt1bg.xpm
+! Mrxvt.profile2.Pixmap:        /home/images/vt2bg.xpm
+! Mrxvt.scrollbarStyle:           next
+! Mrxvt.initTermNumber:           3
+! Mrxvt.transparent:              True
+! Mrxvt.transparentScrollbar:     True
+! Mrxvt.transparentTabbar:        False
+! Mrxvt.transparentMenubar:       False
+! Mrxvt.tintColor:                #ffffff
+! Mrxvt.shading:                  85
+! Mrxvt.foreground:               white
+! Mrxvt.background:               black
