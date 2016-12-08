@@ -15,18 +15,28 @@ inoremap jk <esc>
 " ------------------- MAPPING ------------------------
 
 " ------------------- Settings -----------------------
+" Not sure what this does.
+execute pathogen#infect()
+
 if has("gui_running")
-    set background=light
+    if has("win32")
+        colorscheme solarized 
+        set background=dark
+        set guifont=Consolas:h11:cANSI
+    else
+        set background=light
+    endif
 else
     set background=dark
 endif
+
 set nu
 set ruler
 set ai
 syntax on
 set incsearch
 set hls
-set guioptions=gaem
+set guioptions=gae
 set nocompatible
 set clipboard=unnamed
 set laststatus=2
@@ -51,7 +61,11 @@ set expandtab
 
 " Persistent undo
 set undofile
-set undodir=$HOME/.vim/undo
+if has("win32")
+    set undodir=$HOME/vimfiles/undo
+else
+    set undodir=$HOME/.vim/undo
+endif
 set undolevels=1000
 set undoreload=10000
 
@@ -70,9 +84,6 @@ if has('python')
   "autocmd FileType python set omnifunc=pythoncomplete#Complete
   "autocmd FileType python runtime! autoload/pythoncomplete.vim
 endif
-
-" Not sure what this does.
-execute pathogen#infect()
 
 iab <expr> __dts strftime("%D")
 iab <expr> @@ 'yqm_leaf@163.com'
