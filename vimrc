@@ -11,6 +11,7 @@ nnoremap <leader>t :Tlist<CR>
 nnoremap <leader>x :call CallInterpreter()<CR>
 nnoremap <leader>1 :bprevious<CR>
 nnoremap <leader>2 :bnext<CR>
+nnoremap <space>    za
 inoremap jk <esc>
 " ------------------- MAPPING ------------------------
 
@@ -51,9 +52,17 @@ set expandtab
 
 " Persistent undo
 set undofile
-set undodir=$HOME/.vim/undo
+if has("win32")
+    set undodir=$HOME/vimfiles/undo
+elseif has("unix")
+    set undodir=$HOME/.vim/undo
+endif
 set undolevels=1000
 set undoreload=10000
+
+" Fold.
+set foldmethod=indent
+set foldlevel=99
 
 "set mouse=a
 "set ttymouse=xterm2
@@ -62,6 +71,8 @@ set undoreload=10000
 filetype plugin on
 filetype indent on
 
+" ------------------- Plugins -----------------------
+let g:ycm_autoclose_preview_window_after_completion = 1
 if has('python')
   let g:jedi#completions_command = "<C-N>"
 

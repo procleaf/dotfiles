@@ -40,7 +40,7 @@ alias whiteterm='setterm -foreground white -store'
 
 export HISTSIZE=10000
 export HISTTIMEFORMAT='%D %T '
-export PS1="\[${GREEN}\][\u@\h \w]\$ \[${NO_COLOR}\]"
+export PS1="\[${GREEN}\][\u@\h \W]\$ \[${NO_COLOR}\]"
 export EDITOR='vi'
 export PAGER='less'
 
