@@ -11,7 +11,9 @@ nnoremap <leader>t :Tlist<CR>
 nnoremap <leader>x :call CallInterpreter()<CR>
 nnoremap <leader>1 :bprevious<CR>
 nnoremap <leader>2 :bnext<CR>
+nnoremap <space> za
 inoremap jk <esc>
+
 " ------------------- MAPPING ------------------------
 
 " ------------------- Settings -----------------------
@@ -62,6 +64,14 @@ set undoreload=10000
 filetype plugin on
 filetype indent on
 
+set foldmethod=indent
+set foldlevel=999
+
+" --------------------- Plug-ins -----------------------
+let g:pydiction_location = "$HOME/.vim/bundle/pydiction/complete-dict"
+let g:ycm_autoclose_preview_window_after_completion = 1
+nnoremap <leader>f  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 if has('python')
   let g:jedi#completions_command = "<C-N>"
 
@@ -104,7 +114,7 @@ function! Custom_ft()
   let ft_table = {
     " File type,  ts, sw, compiler.
     'bash'     : [4, 4, 'bash'],
-    'sh'       : [4, 4, 'sh’],
+    'sh'       : [4, 4, 'sh],
     'ruby'     : [2, 2, 'ruby'],
     'python'   : [4, 4, 'python'],
     'tcl'      : [4, 4, 'tclsh'],
