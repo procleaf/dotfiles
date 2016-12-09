@@ -1,0 +1,89 @@
+# ------------------------------------------------------------------------------
+#
+# Muttrc.
+#
+# 04/12/15
+#
+# yqm_leaf@163.com
+#
+# ------------------------------------------------------------------------------
+
+set from                     = "qiye@sigma-rt.com"
+set sendmail                 = "msmtp"
+set sendmail_wait            = -1
+set use_from                 = yes
+set realname                 = "Qiming Ye"
+set hostname                 = "localhost"
+set folder                   = "~/Mail"
+set spoolfile                = "~/Mail/Inbox"
+set record                   = "+Sent"
+set trash                    = "+trash"
+set postponed                = "+draft"
+set mailcap_path             = "~/.mutt/mailcap"
+set alias_file               = "~/.mutt/addressbook"
+set maildir_trash            = "yes"
+set editor                   = "vim --noplugin -c 'set tw=80 spell ft=mail'"
+set ispell                   = "/usr/bin/ispell"
+#set editor                   = "emacs -nw"
+set tmpdir                   = "~/.tmp"
+set header_cache             = "~/.mutt/mutt_cache"
+set pager_context            = 3
+set sort                     = threads
+set sort_aux                 = reverse-last-date-received
+set forward_format           = "Fwd: %s"
+#set meta_key                 = yes
+set sleep_time               = 0
+set beep_new                 = "yes"
+
+set charset                  = "utf-8"
+set query_command            = "abook --mutt-query '%s'"
+set my_dir                   = "~/.mutt/"
+set reply_regexp             = "^(re([\[0-9\]+])*|aw|回复)(:|：)[ \t]*"
+
+set include
+set envelope_from
+set reply_to
+set fast_reply
+set fcc_attach
+set forward_decode
+set forward_quote
+
+unset move
+unset beep
+unset markers
+unset mime_forward
+
+set menu_scroll
+set hidden_host
+
+set pager_stop
+#set pager_index_lines        = 10
+#set pager_context            = 3
+
+auto_view text/html
+auto_view text/plain
+auto_view text/calendar application/ics
+
+#push V
+
+macro index,pager G '<shell-escape> fetchmail<enter>'
+# launch abook.
+macro generic,index,pager \ca "<shell-escape>abook<return>"
+# add the sender address to abook.
+macro index,pager A "<pipe-message>abook --add-email<return>"
+macro editor ";" \Ct
+
+source $alias_file
+source ~/.mutt/mailboxes
+source ~/.mutt/sidebar
+#source ~/.mutt/colors
+source ~/.mutt/headers
+
+# ------------- Attempts to deal with Chinese ------------
+set locale="zh_CN.UTF-8"            # 使用中文
+set ascii_chars=yes                 # ascii 表示树状列表
+set charset="utf-8"                 # 编码及发件编码
+set send_charset="us-ascii:iso-8859-1:utf-8:gb2312"
+charset-hook ^us-ascii$ gb2312      # 把 us-ascii 编码映射到 gb2312
+charset-hook ^iso-8859-1$ gb2312    # 把 iso-8859-1 编码映射到 gb2312
+charset-hook !utf-8 gb2312          # 把非 utf-8 编码映射到 gb2312

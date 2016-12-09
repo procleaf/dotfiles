@@ -800,6 +800,7 @@ bindkey -k k9 select 8
 #
 
 bind V screen -t vim        1   vim
+bind P screen -t python     2   python
 bind H screen -t $myTOP		9	$myTOP
 
 #bind A screen -t asterisk	97	/usr/bin/sudo -u asterisk /usr/sbin/asterisk -cvvvvr
