@@ -126,11 +126,7 @@ function! Custom_ft()
   let ft_table = {
     " File type,  ts, sw, compiler.
     'bash'     : [4, 4, 'bash'],
-<<<<<<< HEAD
-    'sh'       : [4, 4, 'sh],
-=======
     'sh'       : [4, 4, 'sh'],
->>>>>>> 74e26fd3b16bccd22a37e8049af8feee11cff0cf
     'ruby'     : [2, 2, 'ruby'],
     'python'   : [4, 4, 'python'],
     'tcl'      : [4, 4, 'tclsh'],
