@@ -17,18 +17,29 @@ inoremap jk <esc>
 " ------------------- MAPPING ------------------------
 
 " ------------------- Settings -----------------------
+" Not sure what this does.
+execute pathogen#infect()
+
 if has("gui_running")
-    set background=light
+    if has("win32")
+        colorscheme solarized
+        set background=dark
+    else
+        set background=light
+    endif
+    "call togglebg#map("<F5>")
+    set guifont=Consolas:h9:cANSI:qDRAFT
 else
     set background=dark
 endif
+
 set nu
 set ruler
 set ai
 syntax on
 set incsearch
 set hls
-set guioptions=gaem
+set guioptions=gae
 set nocompatible
 set clipboard=unnamed
 set laststatus=2
@@ -52,8 +63,12 @@ set softtabstop=4
 set expandtab
 
 " Persistent undo
+if has("win32")
+    set undodir=$HOME/vimfiles/undo
+elseif has("unix")
+    set undodir=$HOME/.vim/undo
+endif
 set undofile
-set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
 
@@ -80,9 +95,6 @@ if has('python')
   "autocmd FileType python set omnifunc=pythoncomplete#Complete
   "autocmd FileType python runtime! autoload/pythoncomplete.vim
 endif
-
-" Not sure what this does.
-execute pathogen#infect()
 
 iab <expr> __dts strftime("%D")
 iab <expr> @@ 'yqm_leaf@163.com'
@@ -114,7 +126,11 @@ function! Custom_ft()
   let ft_table = {
     " File type,  ts, sw, compiler.
     'bash'     : [4, 4, 'bash'],
+<<<<<<< HEAD
     'sh'       : [4, 4, 'sh],
+=======
+    'sh'       : [4, 4, 'sh'],
+>>>>>>> 74e26fd3b16bccd22a37e8049af8feee11cff0cf
     'ruby'     : [2, 2, 'ruby'],
     'python'   : [4, 4, 'python'],
     'tcl'      : [4, 4, 'tclsh'],
@@ -132,6 +148,10 @@ function! Custom_ft()
 endfunction
 
 function! Sw_bg()
+
+    " Should probably use this:
+    "let &background = ( &background == "dark"? "light" : "dark" )
+
     if (&bg == "dark")
         highlight Normal guibg='white' guifg='black'
         set bg=light

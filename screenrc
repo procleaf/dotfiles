@@ -25,7 +25,7 @@
 # This results in programs waiting for some timeout when
 # they start up - and this just keeps getting in my way.
 # I therefore unset the DISPLAY variable with this command:
-unsetenv DISPLAY
+#unsetenv DISPLAY
 # Text Tools rule!  :-)
 #
 # setenv DISPLAY 'localhost:0.0'
@@ -800,7 +800,8 @@ bindkey -k k9 select 8
 #
 
 bind V screen -t vim        1   vim
-bind H screen -t $myTOP		1	$myTOP
+bind P screen -t python     2   python
+bind H screen -t $myTOP		9	$myTOP
 
 #bind A screen -t asterisk	97	/usr/bin/sudo -u asterisk /usr/sbin/asterisk -cvvvvr
 #screen -t alog		3	/bin/tail -f /var/log/apache/*log
