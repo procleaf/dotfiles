@@ -1,0 +1,15 @@
+#text/html;                      links %s; nametemplate=%s.html
+#text/html; lynx -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+#text/html; lynx -display_charset=$(echo %{charset} | sed s/gb2312/gbk/I) -dump %s; nametemplate=%s.html; copiousoutput
+#text/html;                      links -dump %s; nametemplate=%s.html; copiousoutput
+text/html; w3m -dump -I $(echo %{charset} | sed s/gb2312/gbk/I) %s; nametemplate=%s.html; copiousoutput
+#text/html; w3m -dump %s; nametemplate=%s.html; copiousoutput
+#text/plain; iconv -f gbk -t utf-8 %s; test=echo "%{charset}" | grep -ic "gb2312"; copiousoutput;
+#text/plain; more
+image/*; feh -F %s
+text/plain; more %s
+application/pdf; xpdf %s
+#image/jpeg; open %s
+#image/jpg; open %s
+#image/png; open %s
+#image/gif; open %s
