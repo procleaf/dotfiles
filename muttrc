@@ -8,50 +8,59 @@
 #
 # ------------------------------------------------------------------------------
 
-set from                     = "qiye@sigma-rt.com"
-set sendmail                 = "msmtp"
-set sendmail_wait            = -1
-set use_from                 = yes
-set realname                 = "Qiming Ye"
+set from                     = "tim_ye_robot@163.com"
+#set sendmail                 = "msmtp -a tim_ye_robot"
+set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a tim_ye_robot"
+set use_from                 = "yes"
+#set mbox_type                = Maildir
+set realname                 = "Robot Tim"
 set hostname                 = "localhost"
 set folder                   = "~/Mail"
-set spoolfile                = "~/Mail/Inbox"
-set record                   = "+Sent"
+set spoolfile                = "~/Mail/inbox"
+set record                   = "+sent"
+#set date_format              = "%y-%m-%d %T"
 set trash                    = "+trash"
 set postponed                = "+draft"
 set mailcap_path             = "~/.mutt/mailcap"
 set alias_file               = "~/.mutt/addressbook"
 set maildir_trash            = "yes"
-set editor                   = "vim --noplugin -c 'set tw=80 spell ft=mail'"
+set editor                   = "vim --noplugin -c 'set bg=light tw=80 spell ft=mail'"
 set ispell                   = "/usr/bin/ispell"
+# Sometimes (if not all the time) doesn't work if some error occured.
+#set sendmail_wait            = -1
 #set editor                   = "emacs -nw"
 set tmpdir                   = "~/.tmp"
-set header_cache             = "~/.mutt/mutt_cache"
 set pager_context            = 3
 set sort                     = threads
 set sort_aux                 = reverse-last-date-received
+set header_cache             = "~/.mutt/header_cache"
 set forward_format           = "Fwd: %s"
-#set meta_key                 = yes
+set meta_key                 = yes
 set sleep_time               = 0
 set beep_new                 = "yes"
+set query_command            = "abook --mutt-query '%s'"
+set mark_old                 = "no"
 
 set charset                  = "utf-8"
-set query_command            = "abook --mutt-query '%s'"
-set my_dir                   = "~/.mutt/"
-set reply_regexp             = "^(re([\[0-9\]+])*|aw|回复)(:|：)[ \t]*"
 
+set my_dir                   = "~/.mutt/"
+set reply_regexp             = "^(re([\[0-9\]+])*|aw|(回|答)复)(:|：)[ \t]*"
+
+set mime_forward             = "yes"
+set mime_forward_rest        = "yes"
+alternative_order text/plain text/html
+#set forward_decode
+#set forward_quote
 set include
 set envelope_from
 set reply_to
 set fast_reply
 set fcc_attach
-set forward_decode
-set forward_quote
 
 unset move
 unset beep
 unset markers
-unset mime_forward
+#unset mime_forward
 
 set menu_scroll
 set hidden_host
@@ -62,28 +71,49 @@ set pager_stop
 
 auto_view text/html
 auto_view text/plain
-auto_view text/calendar application/ics
 
 #push V
 
-macro index,pager G '<shell-escape> fetchmail<enter>'
-# launch abook.
-macro generic,index,pager \ca "<shell-escape>abook<return>"
-# add the sender address to abook.
-macro index,pager A "<pipe-message>abook --add-email<return>"
-macro editor ";" \Ct
+macro index,pager G '<shell-escape> fetchmail<enter>' "invoke fetchmail."
+macro index,pager a "|abook --add-email\n" 'add sender to abook'
+macro index A \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+        "mark all new as read"
+macro editor ";" \Ct "query address."
+macro generic ,f "<shell-escape>mairix " "search via mairix"
+#macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 source $alias_file
 source ~/.mutt/mailboxes
 source ~/.mutt/sidebar
 #source ~/.mutt/colors
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
 source ~/.mutt/headers
 
 # ------------- Attempts to deal with Chinese ------------
-set locale="zh_CN.UTF-8"            # 使用中文
-set ascii_chars=yes                 # ascii 表示树状列表
-set charset="utf-8"                 # 编码及发件编码
-set send_charset="us-ascii:iso-8859-1:utf-8:gb2312"
-charset-hook ^us-ascii$ gb2312      # 把 us-ascii 编码映射到 gb2312
-charset-hook ^iso-8859-1$ gb2312    # 把 iso-8859-1 编码映射到 gb2312
-charset-hook !utf-8 gb2312          # 把非 utf-8 编码映射到 gb2312
+#set locale="zh_CN.UTF-8"            # 使用中文
+#set ascii_chars=yes                 # ascii 表示树状列表
+#set charset="utf-8"                 # 编码及发件编码
+#set send_charset="us-ascii:iso-8859-1:utf-8:gb2312"
+#charset-hook ^us-ascii$ gb2312      # 把 us-ascii 编码映射到 gb2312
+#charset-hook ^iso-8859-1$ gb2312    # 把 iso-8859-1 编码映射到 gb2312
+#charset-hook !utf-8 gb2312          # 把非 utf-8 编码映射到 gb2312
+# .....
+set charset="UTF-8"
+# # .........
+set send_charset="UTF-8"
+# # .........
+set locale="zh_CN.UTF-8"
+# # .....................
+charset-hook ^us-ascii$ gb2312
+# # .....utf-8.............
+charset-hook !UTF-8 gb2312
+# # .....MIME.............
+#set strict_mime=no
+set assumed_charset="gb2312"
+# .............
+set rfc2047_parameters=yes
