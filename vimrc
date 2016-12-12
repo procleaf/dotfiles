@@ -12,6 +12,7 @@ nnoremap <leader>x :call CallInterpreter()<CR>
 nnoremap <leader>1 :bprevious<CR>
 nnoremap <leader>2 :bnext<CR>
 nnoremap <space> za
+nnoremap <leader><leader> <c-^>
 inoremap jk <esc>
 
 " ------------------- MAPPING ------------------------
@@ -34,6 +35,11 @@ else
 endif
 
 set nu
+" Not sure what this does.
+set ttyfast
+" Show “invisible” characters
+"set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+"set list
 set ruler
 set ai
 syntax on
@@ -50,6 +56,9 @@ set autoread
 set bs=2
 set nohlsearch
 set keywordprg=:help
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
 
 " This will look in the current directory for 'tags',
 " and work up the tree towards root until one is found.
@@ -76,8 +85,7 @@ set undoreload=10000
 "set ttymouse=xterm2
 " ------------------- Settings -----------------------
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 
 set foldmethod=indent
 set foldlevel=999
