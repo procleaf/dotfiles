@@ -31,18 +31,35 @@ alias mpv='mpv --save-position-on-quit --no-audio-display'
 alias emacs='emacs -nw'
 alias irb='irb --simple-prompt'
 
-# Some alias from C shell.
 alias h='history 20'
 alias greenterm='setterm -foreground green -store'
 alias whiteterm='setterm -foreground white -store'
 
+# Set full block blinking cursor in console.
 [[ $TERM == 'linux' ]] && c
 
-export HISTSIZE=10000
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# Complete after sudo
+complete -cf sudo
+# Complete after man
+complete -cf man
+
+
+# enable zsh like auto nd 'set show-all-if-ambiguous on'
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
+export HISTSIZE=100000
+export HISTFILESIZE=20000
 export HISTTIMEFORMAT='%D %T '
 export PS1="\[${GREEN}\][\u@\h \W]\$ \[${NO_COLOR}\]"
 export EDITOR='vi'
 export PAGER='less'
+# Don’t clear the screen after quitting a manual page.
+export MANPAGER='less -X';
 
 export LC_ALL=en_US.UTF-8
 
