@@ -12,6 +12,7 @@ nnoremap <leader>x :call CallInterpreter()<CR>
 nnoremap <leader>1 :bprevious<CR>
 nnoremap <leader>2 :bnext<CR>
 nnoremap <space> za
+nnoremap <leader><leader> <c-^>
 inoremap jk <esc>
 
 " ------------------- MAPPING ------------------------
@@ -33,13 +34,16 @@ else
     set background=dark
 endif
 
+" Doc says this works in urxvt transparent mode.  Doesn't work for me.
+let g:solarized_termtrans = 1
+
 set nu
 set ruler
 set ai
 syntax on
 set incsearch
 set hls
-set guioptions=gae
+set guioptions=gaem
 set nocompatible
 set clipboard=unnamed
 set laststatus=2

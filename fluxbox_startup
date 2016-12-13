@@ -37,8 +37,8 @@ xsetroot -cursor_name right_ptr
 #wmnd -i eth0 &
 #wmnd -i eth1 &
 #wmmixer -w &
-#xclock -geometry 114x113-0+0 -analog -update 1 &
-rclock -geometry 114x113-0+0 -update 1 &
+xclock -geometry 114x113-0+0 -analog -update 1 &
+#rclock -geometry 114x113-0+0 -update 1 &
 #urxvt +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* -geometry 150x62+0+0 &
 #urxvt &
 #xeyes -geometry 116x103-0+133 &

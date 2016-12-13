@@ -1,27 +1,29 @@
 [begin] (fluxbox)
 [submenu] (Terminals) {}
-      [exec] (xterm) {xterm -geometry 129x51+0+0}
-      [exec] (urxvt) {urxvt -bl +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2 -geometry 129x55+0+0}
-      [exec] (urxvt-transparent) {urxvt -bl -tr -sh 30 +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2 -geometry 129x55+0+0}
-      [exec] (urxvt-terminus) {urxvt -geometry 150x62+0+0}
-      [exec] (urxvt-terminus-transparent) {urxvt -sh 30 -bl -tr +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* -geometry 150x62+0+0}
-      [exec] (urxvt-terminus-bigger-font) {urxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-14-*-*-*-*-*-*-* -geometry 150x62+0+0}
-      [exec] (mrxvt) {mrxvt -bl +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2 -geometry 129x55+0+0}
-      [exec] (mrxvt-transparent) {mrxvt -bl -tr +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2 -geometry 129x55+0+0}
-      [exec] (mrxvt-terminus) {mrxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* -geometry 150x62+0+0}
-      [exec] (mrxvt-terminus-transparent) {mrxvt -bl -tr +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* -geometry 150x62+0+0}
-      [exec] (mrxvt-terminus-bigger-font) {mrxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-14-*-*-*-*-*-*-* -geometry 150x62+0+0}
+      [exec] (xterm) {xterm}
+      [exec] (urxvt) {urxvt -bl +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
+      [exec] (urxvt-transparent) {urxvt -bl -tr -sh 30 +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
+      [exec] (urxvt-terminus) {urxvt}
+      [exec] (urxvt-terminus-transparent) {urxvt -sh 30 -bl -tr +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*}
+      [exec] (urxvt-terminus-bigger-font) {urxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-14-*-*-*-*-*-*-*}
+      [exec] (mrxvt) {mrxvt -bl +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
+      [exec] (mrxvt-transparent) {mrxvt -bl -tr +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
+      [exec] (mrxvt-terminus) {mrxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*}
+      [exec] (mrxvt-terminus-transparent) {mrxvt -bl -tr +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*}
+      [exec] (mrxvt-terminus-bigger-font) {mrxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-14-*-*-*-*-*-*-*}
       [exec] (konsole) {/usr/bin/konsole}
+      [exec] (terminator) {terminator}
+      [exec] (gnome-terminal) {gnome-terminal}
 [end]
 [submenu] (Browsers) {}
       [exec] (Mozilla Firefox) {/usr/bin/firefox}
       [exec] (links2) {links2 -g}
-      [exec] (chromium) {/usr/bin/chromium-browser}
+      [exec] (chromium) {chromium}
       [exec] (Google chrome) {/usr/bin/google-chrome}
 [end]
 [exec] (skype) {/usr/bin/skype}
 [exec] (xfe) {xfe}
 [exec] (qstardict) {/usr/bin/qstardict}
-[exec] (Xclock) {xclock -geometry 120x120+890+600 -analog -update 1} <>
+[exec] (Xclock) {xclock} <>
 [include] (/etc/X11/fluxbox/fluxbox-menu)
 [end]
