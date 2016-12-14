@@ -4,8 +4,10 @@
       [exec] (urxvt) {urxvt -bl +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
       [exec] (urxvt-transparent) {urxvt -bl -tr -sh 30 +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
       [exec] (urxvt-terminus) {urxvt}
-      [exec] (urxvt-terminus-transparent) {urxvt -sh 30 -bl -tr +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*}
-      [exec] (urxvt-terminus-bigger-font) {urxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-14-*-*-*-*-*-*-*}
+      [exec] (urxvt-inconsolata) {urxvt -geometry 225x58+0+0 -fn xft:inconsolata\ for\ powerline:size=12:antialias=true}
+      [exec] (urxvt-inconsolata-transparent) {urxvt -tr -sh 30 -geometry 225x58+0+0 -fn xft:inconsolata\ for\ powerline:size=12:antialias=true}
+      [exec] (urxvt-terminus-transparent) {urxvt -sh 30 -tr +sb -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*}
+      [exec] (urxvt-terminus-bigger-font) {urxvt -bl +sb -fn -*-terminus-*-*-*-*-14-*-*-*-*-*-*-*}
       [exec] (mrxvt) {mrxvt -bl +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
       [exec] (mrxvt-transparent) {mrxvt -bl -tr +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
       [exec] (mrxvt-terminus) {mrxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*}
@@ -22,6 +24,7 @@
       [exec] (Google chrome) {/usr/bin/google-chrome}
 [end]
 [exec] (skype) {/usr/bin/skype}
+[exec] (remmina) {remmina}
 [exec] (xfe) {xfe}
 [exec] (qstardict) {/usr/bin/qstardict}
 [exec] (Xclock) {xclock} <>

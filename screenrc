@@ -896,3 +896,4 @@ bind I screen -t irssi		99	irssi -! ## use the -! to disable autoconnect
 #setenv SSH_AUTH_SOCK "$HOME/tmp/ssh-auth-sock"
 
 term screen-256color
+#term rxvt-unicode-256color

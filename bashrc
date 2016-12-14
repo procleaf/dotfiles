@@ -58,8 +58,9 @@ export HISTTIMEFORMAT='%D %T '
 export PS1="\[${GREEN}\][\u@\h \W]\$ \[${NO_COLOR}\]"
 export EDITOR='vi'
 export PAGER='less'
-# Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
+# Don’t clear the screen after quitting a manual page.  Doesn't work well with
+# GNU screen.
+#export MANPAGER='less -X';
 
 export LC_ALL=en_US.UTF-8
 
@@ -68,13 +69,16 @@ export LC_ALL=en_US.UTF-8
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # run fetchmail on startup.
-#[[ $(pidof fetchmail) ]] || fetchmail -d 300
+[[ $(pidof fetchmail) ]] || fetchmail -d 120
 
 #umask 022
 
-export PATH=$PATH:/sbin:/usr/sbin:/home/tim/bin
-export PYTHONPATH=$PYTHONPATH:/home/tim/scripts/python/
+export PATH=$PATH:/sbin:/usr/sbin:$HOME/bin
+export PYTHONPATH=$PYTHONPATH:$HOME/scripts/python/
 
 # Release 'stty' bind 'ctrl-s', 'ctrl-q'.
 stty stop undef
 stty start undef
+
+# some solarized color for 'ls'.
+eval `dircolors .dir_colors`

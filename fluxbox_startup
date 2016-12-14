@@ -38,6 +38,7 @@ xsetroot -cursor_name right_ptr
 #wmnd -i eth1 &
 #wmmixer -w &
 xclock -geometry 114x113-0+0 -analog -update 1 &
+xbiff -file ~/Mail/inbox -geometry 111x95-0+130 &
 #rclock -geometry 114x113-0+0 -update 1 &
 #urxvt +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* -geometry 150x62+0+0 &
 #urxvt &
@@ -59,7 +60,7 @@ xclock -geometry 114x113-0+0 -analog -update 1 &
 # And last but not least we start fluxbox.
 # Because it is the last app you have to run it with ''exec'' before it.
 
-fbsetbg -f /home/tim/_wall
+fbsetbg -f /home/qiye/_wall &
 # exec /usr/bin/fluxbox
 # or if you want to keep a log:
-exec /usr/bin/fluxbox -verbose -log "/home/tim/.fluxbox/log"
+exec /usr/bin/fluxbox -verbose -log "/home/qiye/.fluxbox/log"

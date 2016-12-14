@@ -21,21 +21,16 @@ inoremap jk <esc>
 " Not sure what this does.
 execute pathogen#infect()
 
-if has("gui_running")
-    if has("win32")
-        colorscheme solarized
-        set background=dark
-    else
-        set background=light
-    endif
-    "call togglebg#map("<F5>")
-    set guifont=Consolas:h9:cANSI:qDRAFT
-else
-    set background=dark
-endif
-
 " Doc says this works in urxvt transparent mode.  Doesn't work for me.
 let g:solarized_termtrans = 1
+
+if has("gui_running")
+    colorscheme solarized
+    set background=dark
+    "call togglebg#map("<F5>")
+    "set guifont=Consolas:h9:cANSI:qDRAFT
+    set guifont=Inconsolata\ Medium\ 11
+endif
 
 set nu
 " Not sure what this does.
@@ -48,7 +43,7 @@ set ai
 syntax on
 set incsearch
 set hls
-set guioptions=gaem
+set guioptions=gae
 set nocompatible
 set clipboard=unnamed
 set laststatus=2
