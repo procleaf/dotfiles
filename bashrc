@@ -75,6 +75,8 @@ export LC_ALL=en_US.UTF-8
 export PATH=$PATH:/sbin:/usr/sbin:/home/tim/bin
 export PYTHONPATH=$PYTHONPATH:/home/tim/scripts/python/
 
+eval `dircolors ~/.dir_colors`
+
 # Release 'stty' bind 'ctrl-s', 'ctrl-q'.
 stty stop undef
 stty start undef
