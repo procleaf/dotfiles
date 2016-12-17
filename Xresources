@@ -28,6 +28,7 @@ xterm*termName:                    xterm-256color
 xterm*background:                  black
 xterm*foreground:                  white
 xterm*scrollKey:                   true
+xterm*geometry:                    190x83+0+0
 
 ! -----------------------------------------------------------------------------
 
@@ -36,9 +37,11 @@ URxvt.savedLines:                  6000
 URxvt.urlLauncher:                 lynx
 URxvt.cursorBLink:                 false
 URxvt.background:                  black
-URxvt.foreground:                  white
+URxvt.foreground:                  grey
+!URxvt.foreground:                  white
 URxvt.font:                        -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 URxvt.borderLess:                  true
+URxvt.geometry:                    190x83+0+0
 
 ! -----------------------------------------------------------------------------
 

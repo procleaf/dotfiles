@@ -34,6 +34,9 @@ else
     set background=dark
 endif
 
+" Doc says this works in urxvt transparent mode.  Doesn't work for me.
+let g:solarized_termtrans = 1
+
 set nu
 " Not sure what this does.
 set ttyfast
@@ -45,7 +48,7 @@ set ai
 syntax on
 set incsearch
 set hls
-set guioptions=gae
+set guioptions=gaem
 set nocompatible
 set clipboard=unnamed
 set laststatus=2
