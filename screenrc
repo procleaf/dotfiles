@@ -820,15 +820,15 @@ bind I screen -t irssi		99	irssi -! ## use the -! to disable autoconnect
 
 # 030511 Some usefull abbreviations
 #  bindkey -t ROFL stuff *ROFL*
-#  bindkey -t °web stuff "www.michael-prokop.at"
+#  bindkey -t Â°web stuff "www.michael-prokop.at"
 # 030511 Workaround for stupid machines without xmodmap ;-)
-#  bindkey -t °a stuff "ä"
-#  bindkey -t °A stuff "Ä"
-#  bindkey -t °o stuff "ö"
-#  bindkey -t °O stuff "Ö"
-#  bindkey -t °u stuff "ü"
-#  bindkey -t °U stuff "Ü"
-#  bindkey -t °s stuff "ß"
+#  bindkey -t Â°a stuff "Ã¤"
+#  bindkey -t Â°A stuff "Ã„"
+#  bindkey -t Â°o stuff "Ã¶"
+#  bindkey -t Â°O stuff "Ã–"
+#  bindkey -t Â°u stuff "Ã¼"
+#  bindkey -t Â°U stuff "Ãœ"
+#  bindkey -t Â°s stuff "ÃŸ"
 #
 # ===============================================================
 # BIND Examples:
@@ -896,3 +896,16 @@ bind I screen -t irssi		99	irssi -! ## use the -! to disable autoconnect
 #setenv SSH_AUTH_SOCK "$HOME/tmp/ssh-auth-sock"
 
 term screen-256color
+termcapinfo xterm*|rxvt-* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo xterm*|rxvt-* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+termcapinfo xterm*|rxvt-* ti@:te=\E[3J
+termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+
+bind m screen -t 'mail' mutt
+bind v screen -t 'vim' vim
+bind i screen -t 'irssi' irssi
+#bind z screen -t 'zsh' zsh
+#bind t screen -t 'htop' htop
+#bind y screen -t 'ncmpc' ncmpc -c
+#bind s screen -t 'root' sudo -s
