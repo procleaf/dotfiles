@@ -12,14 +12,14 @@
 #macro index,pager           d "<enter-command>set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n <delete-message>" "Gmail delete message"
 
 # changing folders ----------------------------------------------------
-macro index,pager           gi  "<change-folder>!<enter>"           "Go to inbox"
+macro index,pager           gi  "<change-folder>=atlantis/Inbox<enter>"           "Go to inbox"
+macro index,pager           gt  "<change-folder>='atlantis/Sent Items'<enter>"       "Go to sent"                # [Gmail]/Drafts
 macro index,pager           gl  "<change-folder>^<enter>"           "Go to last"
 macro index,pager           gp  "<change-folder>=important<enter>"  "Go to priority inbox"      # [Gmail]/Important (p=priority)
 macro index,pager           ga  "<change-folder>=archived<enter>"   "Go to all mail"            # [Gmail]/All
 macro index,pager           gs  "<change-folder>=flagged<enter>"    "Go to starred messages"    # [Gmail]/Starred
 macro index,pager           gf  "<change-folder>=flagged<enter>"    "Go to starred messages"    # [Gmail]/Starred
 macro index,pager           gd  "<change-folder>=drafts<enter>"     "Go to drafts"              # [Gmail]/Drafts
-macro index,pager           gt  "<change-folder>=sent<enter>"       "Go to sent"                # [Gmail]/Drafts
 bind  index,pager           gu  next-unread-mailbox
 bind  index,pager           o   change-folder                                                   # like vim "open"
 
