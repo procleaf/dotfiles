@@ -55,7 +55,7 @@ set bs=2
 set nohlsearch
 set keywordprg=:help
 " Autocomplete with dictionary words when spell check is on
-set complete+=kspell
+"set complete+=kspell
 
 
 " This will look in the current directory for 'tags',
