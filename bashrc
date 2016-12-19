@@ -58,6 +58,7 @@ export HISTTIMEFORMAT='%D %T '
 export PS1="\[${GREEN}\][\u@\h \W]\$ \[${NO_COLOR}\]"
 export EDITOR='vi'
 export PAGER='less'
+export MAIL="~/Mail/inbox"
 # Don’t clear the screen after quitting a manual page.  Doesn't work well with
 # GNU screen.
 #export MANPAGER='less -X';
@@ -69,7 +70,7 @@ export LC_ALL=en_US.UTF-8
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # run fetchmail on startup.
-[[ $(pidof fetchmail) ]] || fetchmail -d 120
+[[ $(pidof fetchmail) ]] || fetchmail -d 60
 
 #umask 022
 
@@ -81,4 +82,4 @@ stty stop undef
 stty start undef
 
 # some solarized color for 'ls'.
-eval `dircolors .dir_colors`
+eval `dircolors ~/.dir_colors`
