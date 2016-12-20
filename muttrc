@@ -10,15 +10,17 @@
 
 set from                     = "tim_ye_robot@163.com"
 #set sendmail                 = "msmtp -a tim_ye_robot"
-set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a tim_ye_robot"
+set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a default"
 set use_from                 = "yes"
+set reverse_name             = "yes"
 #set mbox_type                = Maildir
-set realname                 = "Robot Tim"
+set realname                 = "Tim"
 set hostname                 = "localhost"
 set folder                   = "~/Mail"
 set spoolfile                = "~/Mail/inbox"
 set record                   = "+sent"
 #set date_format              = "%y-%m-%d %T"
+#set trash                    = "+atlantis/Deleted\ Items"
 set trash                    = "+trash"
 set postponed                = "+draft"
 set mailcap_path             = "~/.mutt/mailcap"
@@ -40,17 +42,19 @@ set sleep_time               = 0
 set beep_new                 = "yes"
 set query_command            = "abook --mutt-query '%s'"
 set mark_old                 = "no"
+set mask                     = ""
 
 set charset                  = "utf-8"
 
 set my_dir                   = "~/.mutt/"
 set reply_regexp             = "^(re([\[0-9\]+])*|aw|(回|答)复)(:|：)[ \t]*"
 
-set mime_forward             = "yes"
+set mime_forward             = "ask-yes"
 set mime_forward_rest        = "yes"
 alternative_order text/plain text/html
-#set forward_decode
-#set forward_quote
+set forward_decode
+set noconfirmappend
+set forward_quote
 set include
 set envelope_from
 set reply_to
@@ -60,12 +64,13 @@ set fcc_attach
 unset move
 unset beep
 unset markers
-#unset mime_forward
+unset mime_forward
 
 set menu_scroll
 set hidden_host
 
 set pager_stop
+alternates (tim.ye0@outlook.com|tim.ye0@aliyun.com|tim_ye_robot@163.com|qiming.ye@atlantiscomputing.com)
 #set pager_index_lines        = 10
 #set pager_context            = 3
 
@@ -74,7 +79,16 @@ auto_view text/plain
 
 #push V
 
-macro index,pager G '<shell-escape> fetchmail<enter>' "invoke fetchmail."
+set alias_format    = "%4n %t %-20a %r"
+set date_format="!%Y-%m-%d %R%Z"# use iso8601 happy dates
+set quote_regexp    = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+#set reply_regexp    = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set attribution     = "On %d, %n wrote:"
+set index_format    = "%3C  %Z  %[!%d %b %R] %?X?▫& ? %?M?%2M&  ? %-20.20F  %s"'
+set attach_format   = "[%t][%1n][%4s] %T%d %> %m %M"
+
+#bind editor "^N" history-down
+macro index,pager ,g '<shell-escape> fetchmail<enter>' "invoke fetchmail."
 macro index,pager a "|abook --add-email\n" 'add sender to abook'
 macro index A \
     "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
@@ -82,15 +96,41 @@ macro index A \
 macro editor ";" \Ct "query address."
 macro generic ,f "<shell-escape>mairix " "search via mairix"
 #macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
-macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+#macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+
+macro index,pager ,a "source ~/.mutt/accounts/163"
+macro index,pager ,b "source ~/.mutt/accounts/aliyun"
+
+send2-hook "~f tim.ye0@outlook.com" "source ~/.mutt/accounts/outlook"
+send2-hook "~f qiming.ye@atlantiscomputing.com" "source ~/.mutt/accounts/atlantis"
+send2-hook "~f tim.ye0@aliyun.com" "source ~/.mutt/accounts/aliyun"
+send2-hook "~f tim_ye_robot@163.com" "source ~/.mutt/accounts/163"
+
+macro index,pager ,1 '<enter-command>source ~/.mutt/accounts/atlantis<enter><change-folder>!<enter>'
+macro index,pager ,2 '<enter-command>source ~/.mutt/accounts/163<enter><change-folder>!<enter>'
+macro index,pager ,3 '<enter-command>source ~/.mutt/accounts/outlook<enter><change-folder>!<enter>'
+macro index,pager ,4 '<enter-command>source ~/.mutt/accounts/aliyun<enter><change-folder>!<enter>'
+
+macro index,pager <esc>1 '<enter-command>source ~/.mutt/accounts/atlantis<enter><change-folder>!<enter>'
+macro index,pager <esc>2 '<enter-command>source ~/.mutt/accounts/163<enter><change-folder>!<enter>'
+macro index,pager <esc>3 '<enter-command>source ~/.mutt/accounts/outlook<enter><change-folder>!<enter>'
+macro index,pager <esc>4 '<enter-command>source ~/.mutt/accounts/aliyun<enter><change-folder>!<enter>'
+
+fcc-save-hook "~f tim.ye0@outlook.com" "=outlook/Sent"
+fcc-save-hook "~f qiming.ye@atlantiscomputing.com" "=atlantis/Sent\ Items"
+fcc-save-hook "~f tim.ye0@aliyun.com" "=aliyun/sent"
+fcc-save-hook "~f tim_ye_robot@163.com" "=sent_163"
+
 
 source $alias_file
 source ~/.mutt/mailboxes
 source ~/.mutt/sidebar
+source ~/.mutt/binding
 #source ~/.mutt/colors
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
 source ~/.mutt/headers
 
