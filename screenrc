@@ -902,6 +902,7 @@ termcapinfo xterm*|rxvt-* ti@:te=\E[3J
 termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
 termcapinfo xterm*|rxvt-* hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
 
+bind R eval "source $HOME/.screenrc" "echo '.screenrc reloaded!'"
 bind m screen -t 'mail' mutt
 bind v screen -t 'vim' vim
 bind i screen -t 'irssi' irssi
