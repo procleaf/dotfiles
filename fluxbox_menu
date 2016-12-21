@@ -22,7 +22,7 @@
       [exec] (links2) {links2 -g}
       [exec] (chromium) {chromium}
       [exec] (Google chrome) {/usr/bin/google-chrome}
-      [exec] (Google chrome proxy) {/usr/bin/google-chrome --proxy-server=10.10.120.180:8080}
+      [exec] (Google chrome proxy) {/usr/bin/google-chrome --proxy-server=10.19.14.81:8080}
 [end]
 [exec] (skype) {/usr/bin/skype}
 [exec] (remmina) {remmina}

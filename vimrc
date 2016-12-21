@@ -29,7 +29,7 @@ if has("gui_running")
     set background=dark
     "call togglebg#map("<F5>")
     "set guifont=Consolas:h9:cANSI:qDRAFT
-    set guifont=Inconsolata\ Medium\ 11
+    set guifont=Inconsolata\ Medium\ 12
 endif
 
 set nu
@@ -38,6 +38,7 @@ set ttyfast
 " Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 "set list
+set t_Co=256
 set ruler
 set ai
 syntax on
