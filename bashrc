@@ -37,9 +37,14 @@ alias irb='irb --simple-prompt'
 alias h='history 20'
 alias greenterm='setterm -foreground green -store'
 alias whiteterm='setterm -foreground white -store'
+# proxy settings.
+p="10.19.14.81:8080"
+alias proxy_set='export all_proxy="$p" ; export https_proxy="$p" ; \
+    export http_proxy="$p"'
+alias proxy_unset="unset all_proxy http_proxy https_proxy"
 
 # Set full block blinking cursor in console.
-[[ $TERM == 'linux' ]] && c
+#[[ $TERM == 'linux' ]] && c
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
