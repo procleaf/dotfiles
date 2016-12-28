@@ -11,6 +11,6 @@
 # ------------------------------------------------------------------------------
 
 F="/tmp/terminfo"
-infocmp > "$F"
-sed -i 's/\?0c/\?6c/'"$F"
-tic "$F"
+infocmp | sed 's/\?0c/\?6c/' > "$F" && \
+    { tic "$F" && echo "You should restart tmux" ; } || : # well?
+

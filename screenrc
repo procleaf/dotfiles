@@ -896,9 +896,7 @@ bind I screen -t irssi		99	irssi -! ## use the -! to disable autoconnect
 #setenv SSH_AUTH_SOCK "$HOME/tmp/ssh-auth-sock"
 
 term screen-256color
-<<<<<<< HEAD
 #term rxvt-unicode-256color
-=======
 termcapinfo xterm*|rxvt-* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 termcapinfo xterm*|rxvt-* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 termcapinfo xterm*|rxvt-* ti@:te=\E[3J
@@ -913,4 +911,3 @@ bind i screen -t 'irssi' irssi
 #bind t screen -t 'htop' htop
 #bind y screen -t 'ncmpc' ncmpc -c
 #bind s screen -t 'root' sudo -s
->>>>>>> f836a1e0e00a2c7c45ab5506849e472dcfabded4

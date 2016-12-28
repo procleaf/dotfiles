@@ -14,6 +14,8 @@ nnoremap <leader>2 :bnext<CR>
 nnoremap <space> za
 nnoremap <leader><leader> <c-^>
 inoremap jk <esc>
+" Force saving files that require root permission 
+cnoremap w!! w !sudo tee > /dev/null %
 
 " ------------------- MAPPING ------------------------
 
@@ -46,9 +48,11 @@ set incsearch
 set hls
 set guioptions=gae
 set nocompatible
-set clipboard=unnamed
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 set laststatus=2
-set wildmode=list:longest
+set wildmode=longest,list:longest
 set showmatch
 set textwidth=80
 set autoread
@@ -56,7 +60,8 @@ set bs=2
 set nohlsearch
 set keywordprg=:help
 " Autocomplete with dictionary words when spell check is on
-"set complete+=kspell
+set complete=.,b,u,]
+set complete+=kspell
 
 
 " This will look in the current directory for 'tags',
