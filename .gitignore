@@ -1,1 +1,5 @@
+# vim swap files.
 *.sw[op]
+
+# log file used by scripts/.
+logfile

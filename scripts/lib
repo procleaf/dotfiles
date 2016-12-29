@@ -1,0 +1,30 @@
+#! /usr/bin/env zsh
+
+# ------------------------------------------------------------------------------
+#
+# A common library. 
+#
+# 12/29/16
+#
+# yqm_leaf@163.com
+# 
+# ------------------------------------------------------------------------------
+
+#CUR_DIR="$(cd "$(dirname ${(%):-%N})" && pwd)"
+#LOGFILE="$CUR_DIR/logfile"
+LOGFILE="${0:a:h}/logfile"
+
+#
+# logger.
+#
+log () {
+    echo -e "$(date +'%D %T ')" >> "$LOGFILE"
+}
+
+#
+# exit on error.
+#
+fatal_err () {
+    log "${1}"
+    exit "${2:-127}"
+}
