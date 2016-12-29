@@ -38,7 +38,7 @@ set ttyfast
 " Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 "set list
-set t_Co=256
+"set t_Co=256
 set ruler
 set ai
 syntax on
@@ -56,7 +56,7 @@ set bs=2
 set nohlsearch
 set keywordprg=:help
 " Autocomplete with dictionary words when spell check is on
-"set complete+=kspell
+set complete+=kspell
 
 
 " This will look in the current directory for 'tags',

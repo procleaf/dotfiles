@@ -1,0 +1,19 @@
+#! /usr/bin/env zsh
+
+# ------------------------------------------------------------------------------
+# 
+# run mbsync to check email periodically.
+#
+# 12/22/16
+#
+# yqm_leaf@163.com
+#
+# ------------------------------------------------------------------------------
+
+chk_interval=5
+while : ; do
+    mbsync -V -a || echo "Looks like previous check had some error"
+    echo "sleeping for $chk_interval mins, current time: `date +'%D %T'`"
+    echo "ZzZZzzzZZ...." 
+    sleep ${chk_interval}m
+done
