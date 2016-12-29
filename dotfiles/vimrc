@@ -21,7 +21,9 @@ cnoremap w!! w !sudo tee > /dev/null %
 
 " ------------------- Settings -----------------------
 " Not sure what this does.
-execute pathogen#infect()
+if filereadable($HOME . "/.vim/autoload/pathogen.vim")
+    execute pathogen#infect()
+endif
 
 " Doc says this works in urxvt transparent mode.  Doesn't work for me.
 let g:solarized_termtrans = 1
@@ -31,7 +33,8 @@ if has("gui_running")
     set background=dark
     "call togglebg#map("<F5>")
     "set guifont=Consolas:h9:cANSI:qDRAFT
-    set guifont=Inconsolata\ Medium\ 12
+    "set guifont=Inconsolata\ Medium\ 12
+    set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
 endif
 
 set nu
@@ -80,6 +83,11 @@ if has("win32")
     set undodir=$HOME/vimfiles/undo
 elseif has("unix")
     set undodir=$HOME/.vim/undo
+else
+    echom ('---->Warning: undo directory does not exist')
+endif
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
 endif
 set undofile
 set undolevels=1000
