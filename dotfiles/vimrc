@@ -63,10 +63,7 @@ set bs=2
 set nohlsearch
 set keywordprg=:help
 " Autocomplete with dictionary words when spell check is on
-<<<<<<< HEAD
-=======
 set complete=.,b,u,]
->>>>>>> ae8329034bba50d0a730d79fd6c378cc92a59982
 set complete+=kspell
 
 
