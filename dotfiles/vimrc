@@ -11,32 +11,61 @@ nnoremap <leader>t :Tlist<CR>
 nnoremap <leader>x :call CallInterpreter()<CR>
 nnoremap <leader>1 :bprevious<CR>
 nnoremap <leader>2 :bnext<CR>
+nnoremap <space> za
+nnoremap <leader><leader> <c-^>
 inoremap jk <esc>
+" Force saving files that require root permission 
+cnoremap w!! w !sudo tee > /dev/null %
+
 " ------------------- MAPPING ------------------------
 
 " ------------------- Settings -----------------------
-if has("gui_running")
-    set background=light
-else
-    set background=dark
+" Not sure what this does.
+if filereadable($HOME . "/.vim/autoload/pathogen.vim")
+    execute pathogen#infect()
 endif
+
+" Doc says this works in urxvt transparent mode.  Doesn't work for me.
+let g:solarized_termtrans = 1
+
+if has("gui_running")
+    colorscheme solarized
+    set background=dark
+    "call togglebg#map("<F5>")
+    "set guifont=Consolas:h9:cANSI:qDRAFT
+    "set guifont=Inconsolata\ Medium\ 12
+    set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
+endif
+
 set nu
+" Not sure what this does.
+set ttyfast
+" Show “invisible” characters
+"set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+"set list
+"set t_Co=256
 set ruler
 set ai
 syntax on
 set incsearch
 set hls
-set guioptions=gaem
+set guioptions=gae
 set nocompatible
-set clipboard=unnamed
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 set laststatus=2
-set wildmode=list:longest
+set wildmode=longest,list:longest
 set showmatch
 set textwidth=80
 set autoread
 set bs=2
 set nohlsearch
 set keywordprg=:help
+" Autocomplete with dictionary words when spell check is on
+set complete=.,b,u,]
+set complete+=kspell
+
 
 " This will look in the current directory for 'tags',
 " and work up the tree towards root until one is found.
@@ -50,8 +79,17 @@ set softtabstop=4
 set expandtab
 
 " Persistent undo
+if has("win32")
+    set undodir=$HOME/vimfiles/undo
+elseif has("unix")
+    set undodir=$HOME/.vim/undo
+else
+    echom ('---->Warning: undo directory does not exist')
+endif
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
+endif
 set undofile
-set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
 
@@ -59,8 +97,15 @@ set undoreload=10000
 "set ttymouse=xterm2
 " ------------------- Settings -----------------------
 
-filetype plugin on
-filetype indent on
+filetype plugin indent on
+
+set foldmethod=indent
+set foldlevel=999
+
+" --------------------- Plug-ins -----------------------
+let g:pydiction_location = "$HOME/.vim/bundle/pydiction/complete-dict"
+let g:ycm_autoclose_preview_window_after_completion = 1
+nnoremap <leader>f  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 if has('python')
   let g:jedi#completions_command = "<C-N>"
@@ -70,9 +115,6 @@ if has('python')
   "autocmd FileType python set omnifunc=pythoncomplete#Complete
   "autocmd FileType python runtime! autoload/pythoncomplete.vim
 endif
-
-" Not sure what this does.
-execute pathogen#infect()
 
 iab <expr> __dts strftime("%D")
 iab <expr> @@ 'yqm_leaf@163.com'
@@ -88,6 +130,8 @@ au BufEnter *
       \ endif
 
 function! CallInterpreter()
+    " update will write changes (only if there's any) to disk.
+    update
     if exists("b:interpreter")
         exec("!".b:interpreter." %")
     else
@@ -104,7 +148,7 @@ function! Custom_ft()
   let ft_table = {
     " File type,  ts, sw, compiler.
     'bash'     : [4, 4, 'bash'],
-    'sh'       : [4, 4, 'sh’],
+    'sh'       : [4, 4, 'sh'],
     'ruby'     : [2, 2, 'ruby'],
     'python'   : [4, 4, 'python'],
     'tcl'      : [4, 4, 'tclsh'],
@@ -122,6 +166,10 @@ function! Custom_ft()
 endfunction
 
 function! Sw_bg()
+
+    " Should probably use this:
+    "let &background = ( &background == "dark"? "light" : "dark" )
+
     if (&bg == "dark")
         highlight Normal guibg='white' guifg='black'
         set bg=light

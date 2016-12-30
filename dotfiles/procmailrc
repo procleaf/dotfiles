@@ -1,0 +1,7 @@
+MAILDIR=$HOME/Mail
+DEFAULT=$HOME/Mail/Inbox
+LOGFILE=$HOME/.procmaillog
+
+:0:
+* ^Tomutt-user
+mutt

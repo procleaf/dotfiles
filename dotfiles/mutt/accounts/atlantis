@@ -1,0 +1,12 @@
+#color status     white   green
+#color indicator  brightwhite   green
+
+set from                     = "qiming.ye@atlantiscomputing.com"
+set realname                 = "Qiming Ye"
+set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a qiming.ye.atlantis"
+set spoolfile                = "+atlantis/Inbox"
+set record                   = "+atlantis/Sent\ Items"
+set postponed                = "+atlantis/Drafts"
+set trash                    = "+atlantis/Deleted\ Items"
+
+# vim: ft=muttrc
