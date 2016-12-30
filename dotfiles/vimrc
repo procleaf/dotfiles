@@ -43,7 +43,7 @@ set ttyfast
 " Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 "set list
-set t_Co=256
+"set t_Co=256
 set ruler
 set ai
 syntax on
