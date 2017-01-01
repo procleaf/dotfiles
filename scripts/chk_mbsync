@@ -12,7 +12,7 @@
 
 chk_interval=5
 while : ; do
-    mbsync -V -a || echo "Looks like previous check had some error"
+    mbsync -a || echo "Looks like previous check had some error"
     echo "sleeping for $chk_interval mins, current time: `date +'%D %T'`"
     echo "ZzZZzzzZZ...." 
     sleep ${chk_interval}m
