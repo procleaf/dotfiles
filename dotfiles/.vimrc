@@ -1,6 +1,7 @@
 " ------------------- MAPPING ------------------------
 let mapleader = ","
 let g:mapleader = ","
+" maybe should map <leader>w to :update<cr>.
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>b :buffers<cr>
 nnoremap <leader>g :registers<cr>
