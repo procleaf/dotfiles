@@ -10,7 +10,7 @@ PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/atlantis-im
 #SSLType IMAPS
 UseIMAPS yes
 # The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
-CertificateFile /etc/ssl/certs/ca-certificates.crt
+CertificateFile ~/.mutt/outlook.office365.com.cert
 
 IMAPStore atlantis-remote
 Account atlantis
@@ -48,7 +48,7 @@ PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/aliyun-imap
 #SSLType IMAPS
 UseIMAPS yes
 # The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
-CertificateFile /etc/ssl/certs/ca-certificates.crt
+CertificateFile ~/.mutt/imap.aliyun.com.cert
 
 IMAPStore aliyun-remote
 Account aliyun
@@ -85,8 +85,8 @@ PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/outlook-ima
 #SSLType IMAPS
 UseIMAPS yes
 # The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
-CertificateFile /etc/ssl/certs/ca-certificates.crt
-#CertificateFile ~/.cert/imap.outlook.com.pem
+#CertificateFile /etc/ssl/certs/ca-certificates.crt
+CertificateFile ~/.mutt/imap-mail.outlook.com.cert
 #CertificateFile ~/.cert/Equifax_Secure_CA.pem
 
 IMAPStore outlook-remote
