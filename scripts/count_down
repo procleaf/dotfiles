@@ -1,0 +1,20 @@
+#! /usr/bin/env zsh
+
+# ------------------------------------------------------------------------------
+#
+# Count down per sec.
+#
+# 12/30/16
+#
+# yqm_leaf@163.com
+#
+# http://serverfault.com/questions/532559/bash-script-count-down-5-minutes-display-on-single-line
+#
+# ------------------------------------------------------------------------------
+
+secs=${1:-10}
+while [ $secs -gt 0 ]; do
+    echo -ne "$secs\033[0K\r"
+    sleep 1
+    : $((secs--))
+done

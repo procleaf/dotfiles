@@ -2,7 +2,7 @@
 
 # ------------------------------------------------------------------------------
 # 
-# This will make a full block blinking cursor inside tmux.
+# This will make a full block blinking cursor inside tmux on linux console.
 #
 # 12/21/16
 #

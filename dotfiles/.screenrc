@@ -574,6 +574,9 @@ bindkey -k k6 select 5
 bindkey -k k7 select 6
 bindkey -k k8 select 7
 bindkey -k k9 select 8
+bindkey -k k10 select 9
+bindkey -k k11 select 10
+bindkey -k k12 select 11
 
 #
 # ==============================================================

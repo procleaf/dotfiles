@@ -1,0 +1,23 @@
+#! /usr/bin/env zsh
+
+# ------------------------------------------------------------------------------
+#
+# This script monitors loadavg of a Linux OS. 
+#
+# 12/29/16
+#
+# yqm_leaf@163.com
+# 
+# ------------------------------------------------------------------------------
+
+#cur_dir="$(cd "$(dirname ${(%):-%N})" && pwd)"
+#source "$CUR_DIR/lib"
+source "${0:a:h}/lib"
+
+# Define how much load is 'high'.
+HIGH_LOAD=4
+
+LOAD=$(cut -d' ' -f1 /proc/loadavg) || fatal_err "failed to read /proc/loadavg"
+if [ "${LOAD%.*}" -ge "$HIGH_LOAD" ] ; then
+    [ -z $DISPLAY ] || echo "high load: $LOAD" && xeyes 
+fi

@@ -1,6 +1,7 @@
 " ------------------- MAPPING ------------------------
 let mapleader = ","
 let g:mapleader = ","
+" maybe should map <leader>w to :update<cr>.
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>b :buffers<cr>
 nnoremap <leader>g :registers<cr>
@@ -103,7 +104,7 @@ set foldmethod=indent
 set foldlevel=999
 
 " --------------------- Plug-ins -----------------------
-let g:pydiction_location = "$HOME/.vim/bundle/pydiction/complete-dict"
+"let g:pydiction_location = "$HOME/.vim/bundle/pydiction/complete-dict"
 let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <leader>f  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -130,6 +131,8 @@ au BufEnter *
       \ endif
 
 function! CallInterpreter()
+    " update will write changes (only if there's any) to disk.
+    update
     if exists("b:interpreter")
         exec("!".b:interpreter." %")
     else

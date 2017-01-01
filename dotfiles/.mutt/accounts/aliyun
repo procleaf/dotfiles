@@ -1,0 +1,12 @@
+#color status     white   green
+#color indicator  brightwhite   green
+
+set from                     = "tim.ye0@aliyun.com"
+set realname                 = "Tim Ye"
+set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a aliyun"
+set spoolfile                = "+aliyun/Inbox"
+set record                   = "+aliyun/Sent"
+set postponed                = "+aliyun/Drafts"
+set trash                    = "+aliyun/Trash"
+
+# vim: ft=muttrc
