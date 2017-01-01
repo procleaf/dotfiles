@@ -8,20 +8,19 @@
 #
 # ------------------------------------------------------------------------------
 
-set from                     = "tim_ye_robot@163.com"
-#set sendmail                 = "msmtp -a tim_ye_robot"
+set from                     = "tim.ye0@aliyun.com"
 set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a default"
 set use_from                 = "yes"
 set reverse_name             = "yes"
 #set mbox_type                = Maildir
-set realname                 = "Tim"
+set realname                 = "Tim Ye"
 set hostname                 = "localhost"
 set folder                   = "~/Mail"
-set spoolfile                = "~/Mail/inbox"
-set record                   = "+sent"
+set spoolfile                = "~/Mail/aliyun/Inbox"
+set record                   = "+aliyun/Sent"
 #set date_format              = "%y-%m-%d %T"
 #set trash                    = "+atlantis/Deleted\ Items"
-set trash                    = "+trash"
+set trash                    = "+aliyun/Trash"
 set postponed                = "+draft"
 set mailcap_path             = "~/.mutt/mailcap"
 set alias_file               = "~/.mutt/addressbook"
@@ -30,6 +29,7 @@ set editor                   = "vim --noplugin -c 'set bg=light tw=80 spell ft=m
 set ispell                   = "/usr/bin/ispell"
 # Sometimes (if not all the time) doesn't work if some error occured.
 #set sendmail_wait            = -1
+set sendmail_wait            = 60
 #set editor                   = "emacs -nw"
 set tmpdir                   = "~/.tmp"
 set pager_context            = 3
@@ -77,7 +77,7 @@ alternates (tim.ye0@outlook.com|tim.ye0@aliyun.com|tim_ye_robot@163.com|qiming.y
 auto_view text/html
 auto_view text/plain
 
-#push V
+push V
 
 set alias_format    = "%4n %t %-20a %r"
 set date_format="!%Y-%m-%d %R%Z"# use iso8601 happy dates
@@ -107,6 +107,33 @@ send2-hook "~f qiming.ye@atlantiscomputing.com" "source ~/.mutt/accounts/atlanti
 send2-hook "~f tim.ye0@aliyun.com" "source ~/.mutt/accounts/aliyun"
 send2-hook "~f tim_ye_robot@163.com" "source ~/.mutt/accounts/163"
 
+# mailing lists.
+lists dev-atlantis@atlantiscomputing.com
+subscribe dev-atlantis@atlantiscomputing.com
+lists dev_qa@atlantiscomputing.com
+subscribe dev_qa@atlantiscomputing.com
+lists cd-all-office@sigma-rt.com
+subscribe cd-all-office@sigma-rt.com
+
+lists debian-user@lists.debian.org
+subscribe debian-user@lists.debian.org
+lists debian-devel@lists.debian.org
+subscribe debian-devel@lists.debian.org
+lists python-list@python.org
+subscribe python-list@python.org
+lists arch-general@archlinux.org
+subscribe arch-general@archlinux.org
+lists arch-dev-public@archlinux.org
+subscribe arch-dev-public@archlinux.org
+lists linux-kernel@vger.kernel.org
+subscribe linux-kernel@vger.kernel.org
+lists linux-newbie@vger.kernel.org
+subscribe linux-newbie@vger.kernel.org
+lists screen-users@gnu.org
+subscribe screen-users@gnu.org
+lists openstack@lists.openstack.org
+subscribe openstack@lists.openstack.org
+
 macro index,pager ,1 '<enter-command>source ~/.mutt/accounts/atlantis<enter><change-folder>!<enter>'
 macro index,pager ,2 '<enter-command>source ~/.mutt/accounts/163<enter><change-folder>!<enter>'
 macro index,pager ,3 '<enter-command>source ~/.mutt/accounts/outlook<enter><change-folder>!<enter>'
@@ -119,16 +146,16 @@ macro index,pager <esc>4 '<enter-command>source ~/.mutt/accounts/aliyun<enter><c
 
 fcc-save-hook "~f tim.ye0@outlook.com" "=outlook/Sent"
 fcc-save-hook "~f qiming.ye@atlantiscomputing.com" "=atlantis/Sent\ Items"
-fcc-save-hook "~f tim.ye0@aliyun.com" "=aliyun/sent"
+fcc-save-hook "~f tim.ye0@aliyun.com" "=aliyun/Sent"
 fcc-save-hook "~f tim_ye_robot@163.com" "=sent_163"
 
 
-source $alias_file
+#source $alias_file
 source ~/.mutt/mailboxes
 source ~/.mutt/sidebar
 source ~/.mutt/binding
 #source ~/.mutt/colors
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc

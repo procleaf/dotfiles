@@ -3,3 +3,7 @@
 
 # log file used by scripts/.
 logfile
+# mutt header_cache.
+dotfiles/.mutt/header_cache
+# ctags file.
+/tags
