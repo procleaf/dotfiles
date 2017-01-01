@@ -98,10 +98,6 @@ macro generic ,f "<shell-escape>mairix " "search via mairix"
 #macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
 #macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
-
-macro index,pager ,a "source ~/.mutt/accounts/163"
-macro index,pager ,b "source ~/.mutt/accounts/aliyun"
-
 send2-hook "~f tim.ye0@outlook.com" "source ~/.mutt/accounts/outlook"
 send2-hook "~f qiming.ye@atlantiscomputing.com" "source ~/.mutt/accounts/atlantis"
 send2-hook "~f tim.ye0@aliyun.com" "source ~/.mutt/accounts/aliyun"
@@ -121,7 +117,6 @@ fcc-save-hook "~f tim.ye0@outlook.com" "=outlook/Sent"
 fcc-save-hook "~f qiming.ye@atlantiscomputing.com" "=atlantis/Sent\ Items"
 fcc-save-hook "~f tim.ye0@aliyun.com" "=aliyun/Sent"
 fcc-save-hook "~f tim_ye_robot@163.com" "=sent_163"
-
 
 #source $alias_file
 source ~/.mutt/mailboxes
