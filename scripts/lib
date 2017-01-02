@@ -39,7 +39,10 @@ init_logfile () {
 # logger.
 #
 log () {
-    echo -e "$(date +'%D %T ')" >> "$LOGFILE" || { echo "Log failed" ; exit 127 ; }
+    local str="$(date +'%D %T '): $1"
+    echo -e "$str" >> "$LOGFILE" || { echo "Log failed" ; exit 127 ; }
+    [[ $LOG_TO_STDOUT == "yes" ]] && echo -e "$str"
+
 }
 
 #

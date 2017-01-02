@@ -13,3 +13,4 @@
 EMAIL_RECEIVER='tim.ye0@aliyun.com'
 DEFAULT_EXIT_CODE=127
 LOGFILE="${0:a:h}/logfile"
+LOG_TO_STDOUT="yes"
