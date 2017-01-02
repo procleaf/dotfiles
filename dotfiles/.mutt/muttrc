@@ -120,6 +120,7 @@ fcc-save-hook "~f tim_ye_robot@163.com" "=sent_163"
 
 #source $alias_file
 source ~/.mutt/mailboxes
+source ~/.mutt/mailing_lists
 source ~/.mutt/sidebar
 source ~/.mutt/binding
 #source ~/.mutt/colors

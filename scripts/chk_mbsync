@@ -10,10 +10,13 @@
 #
 # ------------------------------------------------------------------------------
 
-chk_interval=5
+source "${0:a:h}/lib"
+
+# check interval in minute.
+chk_interval=${1:-5}
 while : ; do
     mbsync -a || echo "Looks like previous check had some error"
-    echo "sleeping for $chk_interval mins, current time: `date +'%D %T'`"
-    echo "ZzZZzzzZZ...." 
-    sleep ${chk_interval}m
+    echo "sleeping for $chk_interval mins, current time: $(date +'%D %T')"
+    echo "time left (in sec) to repoll:"
+    count_down $(($chk_interval * 60))
 done

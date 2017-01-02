@@ -10,15 +10,36 @@
 # 
 # ------------------------------------------------------------------------------
 
+source "${0:a:h}/config"
 #CUR_DIR="$(cd "$(dirname ${(%):-%N})" && pwd)"
 #LOGFILE="$CUR_DIR/logfile"
-LOGFILE="${0:a:h}/logfile"
 
+#
+# count down.
+#
+# http://serverfault.com/questions/532559/bash-script-count-down-5-minutes-display-on-single-line
+#
+count_down () {
+    secs=${1}
+    while [ $secs -gt 0 ]; do
+        echo -ne "$secs\033[0K\r"
+        sleep 1
+        : $((secs--))
+    done
+}
+
+#
+# initialize logfile.
+#
+init_logfile () {
+    : > "$LOGFILE}" || \
+        { echo "initialize log file: $LOGFILE failed." ; exit 127 ; }
+}
 #
 # logger.
 #
 log () {
-    echo -e "$(date +'%D %T ')" >> "$LOGFILE"
+    echo -e "$(date +'%D %T ')" >> "$LOGFILE" || { echo "Log failed" ; exit 127 ; }
 }
 
 #

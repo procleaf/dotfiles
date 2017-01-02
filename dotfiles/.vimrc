@@ -50,7 +50,7 @@ set ai
 syntax on
 set incsearch
 set hls
-set guioptions=gae
+set guioptions=gaem
 set nocompatible
 if $TMUX == ''
     set clipboard+=unnamed

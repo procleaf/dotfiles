@@ -2,14 +2,14 @@
 
 # ------------------------------------------------------------------------------
 #
-# Count down per sec.
+# A configuration file. 
 #
-# 12/30/16
+# 01/02/17
 #
 # yqm_leaf@163.com
-#
+# 
 # ------------------------------------------------------------------------------
 
-source "${0:a:h}/lib"
-
-count_down ${1:-10}
+EMAIL_RECEIVER='tim.ye0@aliyun.com'
+DEFAULT_EXIT_CODE=127
+LOGFILE="${0:a:h}/logfile"
