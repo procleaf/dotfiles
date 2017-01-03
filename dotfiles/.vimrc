@@ -64,6 +64,7 @@ set bs=2
 set nohlsearch
 set keywordprg=:help
 " Autocomplete with dictionary words when spell check is on
+set dictionary+=/usr/share/dict/words
 set complete=.,b,u,]
 set complete+=kspell
 
@@ -119,6 +120,7 @@ endif
 
 iab <expr> __dts strftime("%D")
 iab <expr> @@ 'yqm_leaf@163.com'
+iab <expr> @2 'qiming.ye@atlantiscomputing.com'
 
 " ------------------- Settings -----------------------
 
@@ -127,7 +129,7 @@ iab <expr> @@ 'yqm_leaf@163.com'
 " TODO: may need to re-write this.  Using 'filetype' seems to be more natual.
 au BufEnter *
       \ if match(getline(1) , '^\#!') == 0 |
-      \     execute("let b:interpreter = getline(1)[2:]") |
+      \     let b:interpreter = getline(1)[2:] |
       \ endif
 
 function! CallInterpreter()

@@ -124,7 +124,6 @@ source ~/.mutt/mailing_lists
 source ~/.mutt/sidebar
 source ~/.mutt/binding
 #source ~/.mutt/colors
-source ~/.mutt/colors.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
