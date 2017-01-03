@@ -64,6 +64,7 @@ set bs=2
 set nohlsearch
 set keywordprg=:help
 " Autocomplete with dictionary words when spell check is on
+set dictionary+=/usr/share/dict/words
 set complete=.,b,u,]
 set complete+=kspell
 
@@ -119,6 +120,7 @@ endif
 
 iab <expr> __dts strftime("%D")
 iab <expr> @@ 'yqm_leaf@163.com'
+iab <expr> @2 'qiming.ye@atlantiscomputing.com'
 
 " ------------------- Settings -----------------------
 
