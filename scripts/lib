@@ -22,7 +22,7 @@ source "${0:a:h}/config"
 count_down () {
     secs=${1}
     while [ $secs -gt 0 ]; do
-        echo -ne "$secs\033[0K\r"
+        echo -ne "$(($secs / (60 * 60)))h $((($secs / 60) % 60))m $(($secs % 60))s \033[0K\r"
         sleep 1
         : $((secs--))
     done
