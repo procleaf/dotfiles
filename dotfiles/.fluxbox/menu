@@ -1,8 +1,8 @@
 [begin] (fluxbox)
 [submenu] (Terminals) {}
       [exec] (xterm) {xterm}
-      [exec] (urxvt) {urxvt -bl +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
-      [exec] (urxvt-transparent) {urxvt -bl -tr -sh 30 +sb -bg black -fg white -fn -misc-fixed-medium-r-normal-*-*-120-*-*-c-*-iso8859-2}
+      [exec] (urxvt) {urxvt -bl +sb -bg black -fg white}
+      [exec] (urxvt-transparent) {urxvt -bl -tr -sh 30 +sb -bg black -fg white}
       [exec] (urxvt-terminus) {urxvt}
       [exec] (urxvt-inconsolata) {urxvt -geometry 225x58+0+0 -fn xft:inconsolata\ for\ powerline:size=12:antialias=true}
       [exec] (urxvt-inconsolata-transparent) {urxvt -tr -geometry 225x58+0+0 -fn xft:inconsolata\ for\ powerline:size=12:antialias=true}
