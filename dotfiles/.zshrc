@@ -104,6 +104,7 @@ alias whiteterm='setterm -foreground white -store'
 eval `dircolors ~/.dir_colors`
 
 export PATH=/sbin:/usr/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+export LC_ALL=en_US.UTF-8
 # Man page color.
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
@@ -114,4 +115,4 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # shows a full block blinking cursor on login(?).
-[[ $TERM == 'linux' ]] && c  # see 'alias' for 'c'.
+[[ $TERM == 'linux' ]] && c || : # see 'alias' for 'c'.
