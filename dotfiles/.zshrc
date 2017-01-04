@@ -103,6 +103,7 @@ alias whiteterm='setterm -foreground white -store'
 
 eval `dircolors ~/.dir_colors`
 
+export LC_ALL=en_US.UTF-8
 # Man page color.
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
@@ -119,4 +120,4 @@ export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 pgrep fetchmail || fetchmail -d 30 -L ~/.fetchmail.log
 
 # shows a full block blinking cursor on login(?).
-[[ $TERM == 'linux' ]] && c  # see 'alias' for 'c'.
+[[ $TERM == 'linux' ]] && c || : # see 'alias' for 'c'.

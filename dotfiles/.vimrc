@@ -129,7 +129,7 @@ iab <expr> @2 'qiming.ye@atlantiscomputing.com'
 " TODO: may need to re-write this.  Using 'filetype' seems to be more natual.
 au BufEnter *
       \ if match(getline(1) , '^\#!') == 0 |
-      \     execute("let b:interpreter = getline(1)[2:]") |
+      \     let b:interpreter = getline(1)[2:] |
       \ endif
 
 function! CallInterpreter()
