@@ -117,7 +117,12 @@ export PATH="/sbin:$HOME/bin:$PATH"
 
 export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 
-pgrep fetchmail || fetchmail -d 30 -L ~/.fetchmail.log
+# start fetchmail in background if:
+#  - fetchmail is installed.
+#  - ~/.fetchmailrc is present & readable.
+#  - fetchmail is not running already.
+command -v fetchmail > /dev/null 2>&1 && [[ -r ~/.fetchmailrc ]] && \
+        pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L ~/.fetchmail.log
 
 # shows a full block blinking cursor on login(?).
 [[ $TERM == 'linux' ]] && c || : # see 'alias' for 'c'.
