@@ -1,0 +1,9 @@
+set from                     = "yqming@gmail.com"
+set realname                 = "Qiming Ye"
+set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a gmail"
+set spoolfile                = "+inbox_gmail"
+set record                   = "+sent_gmail"
+set postponed                = "+draft"
+set trash                    = "+trash"
+
+# vim:ft=muttrc

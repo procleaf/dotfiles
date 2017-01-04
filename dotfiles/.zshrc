@@ -121,8 +121,8 @@ export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 #  - fetchmail is installed.
 #  - ~/.fetchmailrc is present & readable.
 #  - fetchmail is not running already.
-command -v fetchmail > /dev/null 2>&1 && [[ -r ~/.fetchmailrc ]] && \
-        pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L ~/.fetchmail.log
+(command -v fetchmail > /dev/null 2>&1 && [[ -r ~/.fetchmailrc ]]) && \
+    (pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L ~/.fetchmail.log)
 
-# shows a full block blinking cursor on login(?).
+# shows a full block blinking cursor on login(?) on linux console.
 [[ $TERM == 'linux' ]] && c || : # see 'alias' for 'c'.

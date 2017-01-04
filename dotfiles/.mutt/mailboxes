@@ -1,5 +1,7 @@
 # ------------------------------------------------------------------------------
 #
+# vim: ft=muttrc
+#
 # Mailboxes.
 #
 # ------------------------------------------------------------------------------
@@ -17,16 +19,21 @@ mailboxes        = +atlantis/linux-kernel
 mailboxes        = +atlantis/linux-newbie
 mailboxes        = +atlantis/Deleted\ Items
 mailboxes        = +atlantis/Drafts
-mailboxes        = +atlantis/Journal
+#mailboxes        = +atlantis/Journal
 mailboxes        = +atlantis/Junk\ Email
-mailboxes        = +atlantis/Notes
-mailboxes        = +atlantis/Outbox
-mailboxes        = +atlantis/Sent
-mailboxes        = +atlantis/Tasks
+#mailboxes        = +atlantis/Notes
+#mailboxes        = +atlantis/Outbox
+#mailboxes        = +atlantis/Sent
+#mailboxes        = +atlantis/Tasks
 mailboxes        = +atlantis/Archive
-mailboxes        = +atlantis/Calendar
-mailboxes        = +atlantis/Contacts
-mailboxes        = +atlantis/Conversation\ History
+#mailboxes        = +atlantis/Calendar
+#mailboxes        = +atlantis/Contacts
+#mailboxes        = +atlantis/Conversation\ History
+
+mailboxes        = +inbox_sigma-rt_com
+mailboxes        = +sent_sigma-rt_com
+mailboxes        = +inbox_gmail
+mailboxes        = +sent_gmail
 
 mailboxes        = +aliyun
 mailboxes        = +aliyun/Inbox
@@ -42,13 +49,13 @@ mailboxes        = +aliyun/zsh
 mailboxes        = +aliyun/openstack
 mailboxes        = +aliyun/python-list
 mailboxes        = +aliyun/Drafts
-mailboxes        = +aliyun/junk
+#mailboxes        = +aliyun/junk
 mailboxes        = +aliyun/Junk
-mailboxes        = +aliyun/new
+#mailboxes        = +aliyun/new
 mailboxes        = +aliyun/Trash
 mailboxes        = +aliyun/163_inbox_bak
 mailboxes        = +aliyun/163_sent_bak
-mailboxes        = +aliyun/Sent\ Items
+#mailboxes        = +aliyun/Sent\ Items
 
 mailboxes        = +outlook
 mailboxes        = +outlook/Inbox
@@ -57,5 +64,5 @@ mailboxes        = +outlook/Archive
 mailboxes        = +outlook/Deleted
 mailboxes        = +outlook/Drafts
 mailboxes        = +outlook/Junk
-mailboxes        = +outlook/Notes
-mailboxes        = +outlook/Outbox
+#mailboxes        = +outlook/Notes
+#mailboxes        = +outlook/Outbox

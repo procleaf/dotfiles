@@ -1,0 +1,15 @@
+base=~/Mail
+mfolder=mairix_search
+database=~/.mairixdb
+
+mbox=inbox_sigma-rt_com
+mbox=sent_sigma-rt_com
+mbox=inbox_gmail
+mbox=sent_gmail
+mbox=jira
+mbox=draft
+mbox=trash
+
+maildir=atlantis/*
+maildir=outlook/*
+maildir=aliyun/*
