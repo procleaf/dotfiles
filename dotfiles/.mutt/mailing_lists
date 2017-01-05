@@ -5,6 +5,11 @@ lists dev_qa@atlantiscomputing.com
 subscribe dev_qa@atlantiscomputing.com
 lists cd-all-office@sigma-rt.com
 subscribe cd-all-office@sigma-rt.com
+lists cd-all@sigma-rt.com
+subscribe cd-all@sigma-rt.com
+
+lists ubuntu-users@lists.ubuntu.com
+subscribe ubuntu-users@lists.ubuntu.com
 
 lists debian-laptop@lists.debian.org
 subscribe debian-laptop@lists.debian.org
