@@ -16,6 +16,7 @@ nnoremap <space> za
 nnoremap <leader><leader> <c-^>
 inoremap jk <esc>
 " Force saving files that require root permission 
+" sometimes it doesn't work.
 cnoremap w!! w !sudo tee > /dev/null %
 
 " ------------------- MAPPING ------------------------
@@ -89,6 +90,7 @@ else
     echom ('---->Warning: undo directory does not exist')
 endif
 if !isdirectory(&undodir)
+    " TODO: what if &undodir a file?  how to catch an error in vim scripts.
     call mkdir(&undodir, "p")
 endif
 set undofile
@@ -133,10 +135,10 @@ au BufEnter *
       \ endif
 
 function! CallInterpreter()
-    " update will write changes (only if there's any) to disk.
+    " update will write changes (only if there's any) to disk.  Cool.
     update
     if exists("b:interpreter")
-        exec("!".b:interpreter." %")
+        exec("!" . b:interpreter . " %")
     else
         echom "No interpreter defined."
     endif
