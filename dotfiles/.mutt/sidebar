@@ -1,5 +1,5 @@
 set sidebar_visible          = yes
-set sidebar_width            = 25
+set sidebar_width            = 35
 set sidebar_delim            = '|'
 color sidebar_new            yellow default
 
@@ -8,3 +8,5 @@ bind index,pager        \en	sidebar-next
 bind index,pager        \eo	sidebar-open
 
 macro index,pager        \eh '<enter-command>toggle sidebar_visible<enter>'
+
+# vim: ft=muttrc
