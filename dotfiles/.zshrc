@@ -84,6 +84,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+if [[ $OSTYPE =~ ^freebsd ]] ; then
+    alias ls='ls -F -G'
+else # using gnu ls on Mac.
+    alias ls='ls --color=tty -F'
+fi
 alias c='echo -e "\033[?6c"'
 alias cp='cp -i'
 alias emacs='emacs -nw'
@@ -93,7 +98,6 @@ alias h='history 20'
 alias irb='irb --simple-prompt'
 alias la='ls -a'
 alias ll='ls -l'
-alias ls='ls --color=tty -F'
 alias lynx='lynx --accept_all_cookies'
 alias mpv='mpv --save-position-on-quit --no-audio-display'
 alias mv='mv -i'
