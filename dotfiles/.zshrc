@@ -84,6 +84,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+#
+# as this is getting to be called too often.
+#
+chk_cmd () {
+    command -v "$1" > /dev/null 2>&1 && return 0 || return 1
+}
+
 if [[ $OSTYPE =~ ^freebsd ]] ; then
     alias ls='ls -F -G'
 else # using gnu ls on Mac.
@@ -105,7 +113,7 @@ alias rm='rm -i'
 alias vi='vim'
 alias whiteterm='setterm -foreground white -store'
 
-eval `dircolors ~/.dir_colors`
+chk_cmd "dircolors" && eval `dircolors ~/.dir_colors`
 
 export LC_ALL=en_US.UTF-8
 # Man page color.
@@ -125,7 +133,7 @@ export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 #  - fetchmail is installed.
 #  - ~/.fetchmailrc is present & readable.
 #  - fetchmail is not running already.
-(command -v fetchmail > /dev/null 2>&1 && [[ -r ~/.fetchmailrc ]]) && \
+(chk_cmd "fetchmail" && [[ -r ~/.fetchmailrc ]]) && \
     (pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L ~/.fetchmail.log)
 
 # shows a full block blinking cursor on login(?) on linux console.
