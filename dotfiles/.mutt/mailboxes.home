@@ -1,0 +1,42 @@
+# ------------------------------------------------------------------------------
+#
+# vim: ft=muttrc
+#
+# Mailboxes home.
+#
+# ------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
+#
+# Mailboxes.
+#
+# ------------------------------------------------------------------------------
+
+#mailboxes      = +tim_ye_robot_163
+#mailboxes      = +tim_ye_robot_163/Inbox
+#mailboxes      = +tim_ye_robot_163/sent
+
+mailboxes     = +inbox_163
+mailboxes     = +sent_163
+
+mailboxes     = +draft
+mailboxes     = +trash
+mailboxes     = +debian
+
+mailboxes     = '+--------archives----------'
+mailboxes     = +inbox_nsn
+mailboxes     = +inbox_qye@sigma_rt_com
+mailboxes     = +inbox_yeqiming@gmail_com
+mailboxes     = +inbox_yqm_leaf@163_com
+mailboxes     = +sent_leafeisub@gmail_com
+mailboxes     = +sent_nsn
+mailboxes     = +sent_robot_qiming@gmail_com
+mailboxes     = +sent_yeqiming@gmail_com
+mailboxes     = +sent_yqm_leaf@163_com
+mailboxes     = +mutt_test
+mailboxes     = +misc
+mailboxes     = +nats
+mailboxes     = +nixcraft
+mailboxes     = +subscribes
+mailboxes     = +test_mails
+mailboxes     = +ads

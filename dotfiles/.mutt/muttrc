@@ -4,13 +4,15 @@
 #
 # 04/12/15
 #
+# update on 01/07/17: this configuration file is too big.  it's getting messy.
+#
 # yqm_leaf@163.com
 #
 # ------------------------------------------------------------------------------
 
 # source account file based on hostname.  Account file must be the same with the
 # output of command 'hostname'.
-source                       ~/.mutt/accounts/`hostname`
+#source                       ~/.mutt/accounts/`hostname`
 set use_from                 = "yes"
 set reverse_name             = "yes"
 #set mbox_type                = Maildir
@@ -121,16 +123,18 @@ fcc-save-hook "~f tim.ye0@aliyun.com" "=aliyun/Sent"
 fcc-save-hook "~f tim_ye_robot@163.com" "=sent_163"
 
 #source $alias_file
-source ~/.mutt/mailboxes
+source ~/.mutt/mailboxes.common
+# source work/home muttrc base on hostname.
+source ~/.mutt/muttrc.`hostname`
 source ~/.mutt/mailing_lists
 source ~/.mutt/sidebar
 source ~/.mutt/binding
+source ~/.mutt/headers
 #source ~/.mutt/colors
 source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
-source ~/.mutt/headers
 
 # ------------- Attempts to deal with Chinese ------------
 #set locale="zh_CN.UTF-8"            # 使用中文

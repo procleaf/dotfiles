@@ -2,7 +2,7 @@
 #
 # vim: ft=muttrc
 #
-# Mailboxes.
+# Mailboxes work.
 #
 # ------------------------------------------------------------------------------
 
@@ -29,11 +29,6 @@ mailboxes        = +atlantis/Archive
 #mailboxes        = +atlantis/Calendar
 #mailboxes        = +atlantis/Contacts
 #mailboxes        = +atlantis/Conversation\ History
-
-mailboxes        = +inbox_sigma-rt_com
-mailboxes        = +sent_sigma-rt_com
-mailboxes        = +inbox_gmail
-mailboxes        = +sent_gmail
 
 mailboxes        = +aliyun
 mailboxes        = +aliyun/Inbox
