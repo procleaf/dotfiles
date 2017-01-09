@@ -13,7 +13,8 @@
       [exec] (mrxvt-terminus) {mrxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*}
       [exec] (mrxvt-terminus-transparent) {mrxvt -bl -tr +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*}
       [exec] (mrxvt-terminus-bigger-font) {mrxvt -bl +sb -bg black -fg white -fn -*-terminus-*-*-*-*-14-*-*-*-*-*-*-*}
-      [exec] (konsole) {/usr/bin/konsole}
+      [exec] (konsole) {konsole}
+      [exec] (xfce4-terminal) {xfce4-terminal}
       [exec] (terminator) {terminator}
       [exec] (gnome-terminal) {gnome-terminal}
 [end]
@@ -26,6 +27,7 @@
 [end]
 [exec] (skype) {/usr/bin/skype}
 [exec] (remmina) {remmina}
+[exec] (ksnapshot) {ksnapshot}
 [exec] (xfe) {xfe}
 [exec] (qstardict) {/usr/bin/qstardict}
 [exec] (Xclock) {xclock} <>

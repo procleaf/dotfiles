@@ -20,7 +20,7 @@ set folder                   = "~/Mail"
 set mailcap_path             = "~/.mutt/mailcap"
 set alias_file               = "~/.mutt/addressbook"
 set maildir_trash            = "yes"
-set editor                   = "vim --noplugin -c 'set comments+=nb:> nocp fo+=qaw bg=light tw=72 spell ft=mail'"
+set editor                   = "vim -c 'set comments+=nb:> nocp fo+=qaw bg=light tw=72 spell ft=mail'"
 set text_flowed              = "yes"
 set ispell                   = "/usr/bin/ispell"
 # Sometimes (if not all the time) doesn't work if some error occured.
