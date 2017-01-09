@@ -15,7 +15,7 @@
 import re
 
 def valid_ipv4(ip):
-    p     = '^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$'
+    p     = r'^([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})\.([0-9]{1,3})$'
     res = re.search(p, ip)
     if not res: return False
     patterns = res.groups()
