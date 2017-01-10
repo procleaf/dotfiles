@@ -36,7 +36,7 @@ if has("gui_running")
     "call togglebg#map("<F5>")
     "set guifont=Consolas:h9:cANSI:qDRAFT
     "set guifont=Inconsolata\ Medium\ 12
-    set guifont=Inconsolata\ for\ Powerline\ Medium\ 12
+    set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
 endif
 
 set nu
@@ -51,7 +51,7 @@ set ai
 syntax on
 set incsearch
 set hls
-set guioptions=gaem
+set guioptions=gae
 set nocompatible
 if $TMUX == ''
     set clipboard+=unnamed
