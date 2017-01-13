@@ -15,6 +15,7 @@ mailboxes        = +atlantis/automation
 mailboxes        = +atlantis/build
 mailboxes        = +atlantis/git
 mailboxes        = +atlantis/JIRA
+mailboxes        = +atlantis/qa_test
 mailboxes        = +atlantis/linux-kernel
 mailboxes        = +atlantis/linux-newbie
 mailboxes        = +atlantis/Deleted\ Items
