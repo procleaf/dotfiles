@@ -92,18 +92,15 @@ chk_cmd () {
     command -v "$1" > /dev/null 2>&1 && return 0 || return 1
 }
 
-if [[ $OSTYPE =~ ^freebsd ]] ; then
-    alias ls='ls -F -G'
-else # using gnu ls on Mac.
-    alias ls='ls --color=tty -F'
-fi
 alias c='echo -e "\033[?6c"'
 alias cp='cp -i'
 alias emacs='emacs -nw'
 alias greenterm='setterm -foreground green -store'
+alias whiteterm='setterm -foreground white -store'
 alias grep='grep --color=auto'
 alias h='history 20'
 alias irb='irb --simple-prompt'
+alias ls='ls --color=auto -F'
 alias la='ls -a'
 alias ll='ls -l'
 alias lynx='lynx --accept_all_cookies'
@@ -111,7 +108,16 @@ alias mpv='mpv --save-position-on-quit --no-audio-display'
 alias mv='mv -i'
 alias rm='rm -i'
 alias vi='vim'
-alias whiteterm='setterm -foreground white -store'
+
+if [[ $OSTYPE =~ ^darwin ]] ; then
+    export PATH="/opt/local/bin:/opt/local/sbin:/Users/tim/bin:/opt/local/libexec/gnubin:$PATH"
+    alias file='file -h'
+    plugins+="osx"
+elif [[ $OSTYPE =~ ^freebsd ]] ; then
+    alias ls='\ls -F -G'
+elif [[ -e "/etc/os-release" ]] ; then
+    plugins+="debian"
+fi
 
 chk_cmd "dircolors" && eval `dircolors ~/.dir_colors`
 
