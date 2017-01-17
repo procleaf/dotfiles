@@ -22,7 +22,7 @@ set folder                   = "~/Mail"
 set mailcap_path             = "~/.mutt/mailcap"
 set alias_file               = "~/.mutt/addressbook"
 set maildir_trash            = "yes"
-set editor                   = "vim -c 'set comments+=nb:> nocp fo+=qaw bg=light tw=72 spell ft=mail'"
+set editor                   = "vim --noplugin -c 'set comments+=nb:> nocp fo+=qaw bg=light tw=72 spell ft=mail'"
 #set text_flowed              = "yes"
 set ispell                   = "/usr/bin/ispell"
 # Sometimes (if not all the time) doesn't work if some error occured.
@@ -40,6 +40,7 @@ set sleep_time               = 0
 set beep_new                 = "yes"
 set query_command            = "abook --mutt-query '%s'"
 set mark_old                 = "no"
+set mail_check               = 60
 set mask                     = ""
 
 set charset                  = "utf-8"
@@ -132,7 +133,7 @@ source ~/.mutt/sidebar
 source ~/.mutt/binding
 source ~/.mutt/headers
 #source ~/.mutt/colors
-source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
