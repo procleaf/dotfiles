@@ -125,7 +125,7 @@ export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - in
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export PATH="/sbin:$HOME/bin:$PATH"
+export PATH="/usr/sbin:/sbin:$HOME/bin:$PATH"
 
 export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 
