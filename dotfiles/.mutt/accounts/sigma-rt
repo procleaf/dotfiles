@@ -1,6 +1,6 @@
 set from                     = "qiye@sigma-rt.com
 set realname                 = "Qiming Ye"
-set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a qiye"
+set sendmail                 = "/usr/bin/msmtp -a qiye"
 set spoolfile                = "+inbox_sigma-rt_com"
 set record                   = "+sent_sigma-rt_com"
 set trash                    = "+trash"

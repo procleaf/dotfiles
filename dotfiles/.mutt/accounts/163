@@ -3,7 +3,7 @@
 
 set from                     = "tim_ye_robot@163.com"
 set realname                 = "Tim Ye"
-set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a tim_ye_robot"
+set sendmail                 = "/usr/bin/msmtp -a tim_ye_robot"
 set spoolfile                = "+inbox_163"
 set record                   = "+sent_163"
 set postponed                = "+draft"

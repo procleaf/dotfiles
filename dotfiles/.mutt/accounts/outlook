@@ -3,7 +3,7 @@
 
 set from                     = "tim.ye0@outlook.com"
 set realname                 = "Tim Ye"
-set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a outlook"
+set sendmail                 = "/usr/bin/msmtp -a outlook"
 set spoolfile                = "+outlook/Inbox"
 set record                   = "+outlook/Sent"
 set postponed                = "+outlook/Drafts"
