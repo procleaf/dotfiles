@@ -65,7 +65,7 @@ set fcc_attach
 unset move
 #unset beep
 unset markers
-unset mime_forward
+#unset mime_forward
 
 set menu_scroll
 set hidden_host
@@ -136,7 +136,7 @@ source ~/.mutt/sidebar
 source ~/.mutt/binding
 source ~/.mutt/headers
 #source ~/.mutt/colors
-#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 #source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
