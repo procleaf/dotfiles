@@ -9,6 +9,7 @@ text/html; w3m -dump -I $(echo %{charset} | sed s/gb2312/gbk/I) %s; nametemplate
 image/*; feh -F %s
 text/plain; more %s
 application/pdf; xpdf %s
+application/gzip; zmore %s
 #image/jpeg; open %s
 #image/jpg; open %s
 #image/png; open %s

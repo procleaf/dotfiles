@@ -22,12 +22,14 @@ set folder                   = "~/Mail"
 set mailcap_path             = "~/.mutt/mailcap"
 set alias_file               = "~/.mutt/addressbook"
 set maildir_trash            = "yes"
-set editor                   = "vim -c 'set comments+=nb:> nocp fo+=qaw bg=light tw=72 spell ft=mail'"
+set editor                   = "vim --noplugin -c 'set comments+=nb:> nocp fo+=qaw bg=light tw=72 spell ft=mail'"
 #set text_flowed              = "yes"
 set ispell                   = "/usr/bin/ispell"
 # Sometimes (if not all the time) doesn't work if some error occured.
 #set sendmail_wait            = -1
 set sendmail_wait            = 60
+# some say this will make mutt response faster.
+set mail_check               = 60
 #set editor                   = "emacs -nw"
 set tmpdir                   = "~/.tmp"
 set pager_context            = 3
@@ -40,6 +42,7 @@ set sleep_time               = 0
 set beep_new                 = "yes"
 set query_command            = "abook --mutt-query '%s'"
 set mark_old                 = "no"
+set mail_check               = 60
 set mask                     = ""
 
 set charset                  = "utf-8"
@@ -62,7 +65,7 @@ set fcc_attach
 unset move
 #unset beep
 unset markers
-unset mime_forward
+#unset mime_forward
 
 set menu_scroll
 set hidden_host
@@ -82,13 +85,14 @@ set date_format="!%Y-%m-%d %R%Z"# use iso8601 happy dates
 set quote_regexp    = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 #set reply_regexp    = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set attribution     = "On %d, %n wrote:"
-set index_format    = "%3C  %Z  %[!%d %b %R] %?X?▫& ? %?M?%2M&  ? %-20.20F  %s"'
+#set index_format    = "%3C  %Z  %[!%d %b %R] %?X?▫& ? %?M?%2M&  ? %-20.20F  %s"'
+set index_format    = "%3C  %Z  %[!%d %b %R] %?X?⚡& ? %?M?%2M&  ? %-20.20F  %s"'
 set attach_format   = "[%t][%1n][%4s] %T%d %> %m %M"
 
 #bind editor "^N" history-down
 macro generic ,a "<shell-escape>mbsync atlantis<enter>" "pull mail from account atlantis"
 macro generic ,f "<shell-escape>mairix " "search via mairix"
-macro generic ,g '<shell-escape> fetchmail<enter>' "invoke fetchmail."
+macro generic ,g '<shell-escape>fetchmail<enter>' "invoke fetchmail."
 macro index,pager a "|abook --add-email\n" 'add sender to abook'
 macro index A \
     "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \

@@ -3,7 +3,7 @@
 
 set from                     = "tim.ye0@aliyun.com"
 set realname                 = "Tim Ye"
-set sendmail                 = "~/scripts/mail_send_wrapper /usr/bin/msmtp -a aliyun"
+set sendmail                 = "/usr/bin/msmtp -a aliyun"
 set spoolfile                = "+aliyun/Inbox"
 set record                   = "+aliyun/Sent"
 set postponed                = "+aliyun/Drafts"

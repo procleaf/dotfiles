@@ -28,7 +28,7 @@
 [exec] (skype) {/usr/bin/skype}
 [exec] (remmina) {remmina}
 [exec] (ksnapshot) {ksnapshot}
-[exec] (xfe) {xfe}
+[exec] (thunar) {thunar}
 [exec] (qstardict) {/usr/bin/qstardict}
 [exec] (Xclock) {xclock} <>
 [include] (/etc/X11/fluxbox/fluxbox-menu)

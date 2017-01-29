@@ -113,6 +113,7 @@ set foldlevel=999
 "let g:pydiction_location = "$HOME/.vim/bundle/pydiction/complete-dict"
 let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <leader>f  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let NERDSpaceDelims = 1
 
 if has('python')
   let g:jedi#completions_command = "<C-N>"
