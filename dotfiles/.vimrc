@@ -36,7 +36,11 @@ if has("gui_running")
     "call togglebg#map("<F5>")
     "set guifont=Consolas:h9:cANSI:qDRAFT
     "set guifont=Inconsolata\ Medium\ 12
-    set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
+    if has("mac")
+        set guifont=Inconsolata\ for\ Powerline\:h15
+    elseif has("unix")
+        set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
+    end
 endif
 
 set nu
@@ -74,7 +78,6 @@ set complete+=kspell
 " and work up the tree towards root until one is found.
 " NOTE: not sure if it works, token from somebody else.
 set tags=./tags;/
-
 
 set tabstop=4
 set shiftwidth=4
