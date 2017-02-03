@@ -26,6 +26,7 @@
       [exec] (Google chrome proxy) {/usr/bin/google-chrome --proxy-server=10.19.14.81:8080}
 [end]
 [exec] (skype) {/usr/bin/skype}
+[exec] (slack) {slack}
 [exec] (remmina) {remmina}
 [exec] (ksnapshot) {ksnapshot}
 [exec] (thunar) {thunar}
