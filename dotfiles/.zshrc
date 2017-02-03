@@ -18,7 +18,7 @@ ZSH_THEME="random"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -110,6 +110,7 @@ alias rm='rm -i'
 alias vi='vim'
 
 if [[ $OSTYPE =~ ^darwin ]] ; then
+    export MANPATH="/opt/local/share/man:$MANPATH"
     export PATH="/opt/local/bin:/opt/local/sbin:/Users/tim/bin:/opt/local/libexec/gnubin:$PATH"
     alias file='file -h'
     plugins+="osx"
