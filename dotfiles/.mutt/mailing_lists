@@ -23,8 +23,14 @@ lists python-list@python.org
 subscribe python-list@python.org
 lists arch-general@archlinux.org
 subscribe arch-general@archlinux.org
+lists arch-announce@archlinux.org
+subscribe arch-announce@archlinux.org
 lists arch-dev-public@archlinux.org
 subscribe arch-dev-public@archlinux.org
+lists aur-dev@archlinux.org
+subscribe aur-dev@archlinux.org
+lists mutt-users@mutt.org
+subscribe mutt-users@mutt.org
 lists linux-kernel@vger.kernel.org
 subscribe linux-kernel@vger.kernel.org
 lists linux-newbie@vger.kernel.org
