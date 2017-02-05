@@ -63,7 +63,7 @@ endif
 set laststatus=2
 set wildmode=longest,list:longest
 set showmatch
-set textwidth=80
+set textwidth=72
 set autoread
 set bs=2
 set nohlsearch
