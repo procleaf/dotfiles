@@ -17,6 +17,6 @@ chk_interval=${1:-5}
 while : ; do
     mbsync -a || echo "Looks like previous check had some error"
     echo "sleeping for $chk_interval mins, current time: $(date +'%D %T')"
-    echo "time left to repoll:"
+    echo "time left to re-sync:"
     count_down $(($chk_interval * 60))
 done
