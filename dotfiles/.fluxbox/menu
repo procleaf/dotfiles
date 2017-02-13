@@ -22,8 +22,9 @@
       [exec] (Mozilla Firefox) {/usr/bin/firefox}
       [exec] (links2) {links2 -g}
       [exec] (chromium) {chromium}
+      [exec] (epiphany) {epiphany-browser}
       [exec] (Google chrome) {/usr/bin/google-chrome}
-      [exec] (Google chrome proxy) {/usr/bin/google-chrome --proxy-server=10.19.14.81:8080}
+      [exec] (Google chrome proxy) {/usr/bin/google-chrome --proxy-server=10.21.121.2:3128}
 [end]
 [exec] (skype) {/usr/bin/skype}
 [exec] (slack) {slack}

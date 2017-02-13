@@ -33,7 +33,7 @@ xsetroot -cursor_name right_ptr
 # MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
 #
 # unclutter -idle 2 &
-bbrun &
+#bbrun &
 wmnd -i eth0 &
 #wmnd -i eth1 &
 #wmmixer -w &
