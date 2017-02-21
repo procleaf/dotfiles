@@ -38,8 +38,8 @@ wmnd -i eth0 &
 #wmnd -i eth1 &
 #wmmixer -w &
 xclock -geometry 114x113-0+0 -analog -update 1 &
-xbiff -file ~/Mail/inbox -geometry 111x95-0+130 &
-xbiff -file ~/Mail/atlantis/Inbox -geometry 111x95-0+130 &
+#xbiff -file ~/Mail/inbox -geometry 111x95-0+130 &
+#xbiff -file ~/Mail/atlantis/Inbox -geometry 111x95-0+130 &
 #rclock -geometry 114x113-0+0 -update 1 &
 #urxvt +sb -bg black -fg white -fn -*-terminus-*-*-*-*-12-*-*-*-*-*-*-* -geometry 150x62+0+0 &
 #urxvt &

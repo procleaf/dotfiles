@@ -146,3 +146,12 @@ export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 
 # shows a full block blinking cursor on login(?) on linux console.
 [[ $TERM == 'linux' ]] && c || : # see 'alias' for 'c'.
+
+function backward-kill-partial-word {
+    local WORDCHARS="${WORDCHARS//[\/.]/}"
+    zle backward-kill-word "$@"
+}
+zle -N backward-kill-partial-word
+for x in '^Xw' '^[^?' '^[^H'; do
+    bindkey "$x" backward-kill-partial-word
+done; unset x

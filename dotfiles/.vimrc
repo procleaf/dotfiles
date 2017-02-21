@@ -73,6 +73,7 @@ set dictionary+=/usr/share/dict/words
 set complete=.,b,u,]
 set complete+=kspell
 
+set fo+=qaw
 
 " This will look in the current directory for 'tags',
 " and work up the tree towards root until one is found.
