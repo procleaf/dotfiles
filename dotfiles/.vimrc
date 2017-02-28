@@ -24,22 +24,32 @@ cnoremap w!! w !sudo tee > /dev/null %
 " ------------------- MAPPING ------------------------
 
 " ------------------- Settings -----------------------
+if has("win32")
+    let vim_home = $HOME . '/vimfiles'
+else
+    let vim_home = $HOME . '/.vim'
+endif
+
 " Not sure what this does.
-if filereadable($HOME . "/.vim/autoload/pathogen.vim")
+if filereadable(vim_home . "/autoload/pathogen.vim")
     execute pathogen#infect()
 endif
 
 " Doc says this works in urxvt transparent mode.  Doesn't work for me.
 let g:solarized_termtrans = 1
 
+
 if has("gui_running")
-    colorscheme solarized
+    if filereadable(vim_home . "/bundle/vim-colors-solarized")
+        colorscheme solarized
+    endif
     set background=dark
     "call togglebg#map("<F5>")
-    "set guifont=Consolas:h9:cANSI:qDRAFT
-    "set guifont=Inconsolata\ Medium\ 12
+    "
     if has("mac")
         set guifont=Inconsolata\ for\ Powerline\:h15
+    elseif has("win32")
+        set guifont=Inconsolata:h12:cANSI
     elseif has("unix")
         set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
     end

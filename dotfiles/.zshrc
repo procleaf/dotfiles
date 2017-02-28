@@ -108,6 +108,7 @@ alias mpv='mpv --save-position-on-quit --no-audio-display'
 alias mv='mv -i'
 alias rm='rm -i'
 alias vi='vim'
+alias less='less -X -N'
 
 if [[ $OSTYPE =~ ^darwin ]] ; then
     export MANPATH="/opt/local/share/man:$MANPATH"
