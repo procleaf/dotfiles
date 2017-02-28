@@ -12,8 +12,10 @@ nnoremap <leader>t :Tlist<CR>
 nnoremap <leader>x :call CallInterpreter()<CR>
 nnoremap <leader>1 :bprevious<CR>
 nnoremap <leader>2 :bnext<CR>
-nnoremap <space> za
 nnoremap <leader><leader> <c-^>
+nnoremap cm :exe 'normal! '.(virtcol('$')/2).'\|'<cr>
+
+nnoremap <space> za
 inoremap jk <esc>
 " Force saving files that require root permission 
 " sometimes it doesn't work.
