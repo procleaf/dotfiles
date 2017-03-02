@@ -42,8 +42,8 @@ let g:solarized_termtrans = 1
 if has("gui_running")
     if filereadable(vim_home . "/bundle/vim-colors-solarized")
         colorscheme solarized
+        set background=dark
     endif
-    set background=dark
     "call togglebg#map("<F5>")
     "
     if has("mac")
@@ -55,7 +55,9 @@ if has("gui_running")
     end
 endif
 
-set nu
+set number
+set relativenumber
+
 " Not sure what this does.
 set ttyfast
 " Show “invisible” characters
