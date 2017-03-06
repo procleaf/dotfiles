@@ -56,6 +56,9 @@ DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
 
+# we have room.
+HISTSIZE=100000
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -121,7 +124,8 @@ elif [[ -e "/etc/os-release" ]] ; then
     plugins+="debian"
 fi
 
-chk_cmd "dircolors" && eval `dircolors ~/.dir_colors`
+chk_cmd "dircolors" && [[ -r ~/.dir_colors ]] && \
+    eval `dircolors ~/.dir_colors`
 
 export LC_ALL=en_US.UTF-8
 # Man page color.
@@ -135,6 +139,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 export PATH="/usr/sbin:/sbin:$HOME/bin:$PATH"
 export PAGER='less -X'
+export EDITOR='vim'
 
 export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 

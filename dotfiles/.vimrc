@@ -12,8 +12,10 @@ nnoremap <leader>t :Tlist<CR>
 nnoremap <leader>x :call CallInterpreter()<CR>
 nnoremap <leader>1 :bprevious<CR>
 nnoremap <leader>2 :bnext<CR>
-nnoremap <space> za
 nnoremap <leader><leader> <c-^>
+nnoremap cm :exe 'normal! '.(virtcol('$')/2).'\|'<cr>
+
+nnoremap <space> za
 inoremap jk <esc>
 " Force saving files that require root permission 
 " sometimes it doesn't work.
@@ -39,8 +41,8 @@ let g:solarized_termtrans = 1
 if has("gui_running")
     if filereadable(vim_home . "/bundle/vim-colors-solarized")
         colorscheme solarized
+        set background=dark
     endif
-    set background=dark
     "call togglebg#map("<F5>")
     "
     if has("mac")
@@ -52,7 +54,9 @@ if has("gui_running")
     end
 endif
 
-set nu
+set number
+set relativenumber
+
 " Not sure what this does.
 set ttyfast
 " Show “invisible” characters
