@@ -38,7 +38,6 @@ endif
 " Doc says this works in urxvt transparent mode.  Doesn't work for me.
 let g:solarized_termtrans = 1
 
-
 if has("gui_running")
     if filereadable(vim_home . "/bundle/vim-colors-solarized")
         colorscheme solarized
@@ -86,6 +85,8 @@ set keywordprg=:help
 set dictionary+=/usr/share/dict/words
 set complete=.,b,u,]
 set complete+=kspell
+
+set path+=**
 
 set fo+=qaw
 
