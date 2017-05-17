@@ -1,1 +1,1 @@
-leafei's dotfiles.
+Dotfiles.
