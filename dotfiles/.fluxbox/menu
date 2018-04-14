@@ -15,8 +15,7 @@
       [exec] (Google chrome proxy) {/usr/bin/google-chrome --proxy-server=10.21.121.2:3128}
 [end]
 [exec] (skype) {/usr/bin/skype}
-[exec] (slack) {slack}
-[exec] (remmina) {remmina}
+[exec] (liferea) {liferea}
 [exec] (ksnapshot) {ksnapshot}
 [exec] (thunar) {thunar}
 [exec] (qstardict) {/usr/bin/qstardict}

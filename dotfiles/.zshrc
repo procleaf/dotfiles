@@ -95,6 +95,7 @@ chk_cmd () {
     command -v "$1" > /dev/null 2>&1 && return 0 || return 1
 }
 
+# starts a full block blinking cursor.
 alias c='echo -e "\033[?6c"'
 alias cp='cp -i'
 alias emacs='emacs -nw'

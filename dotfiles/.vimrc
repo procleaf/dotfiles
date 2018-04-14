@@ -155,7 +155,7 @@ au BufEnter *
       \ endif
 
 function! CallInterpreter()
-    " update will write changes (only if there's any) to disk.  Cool.
+    " update will write changes (only if there's any) to disk.
     update
     if exists("b:interpreter")
         exec("!" . b:interpreter . " %")
