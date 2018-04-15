@@ -56,7 +56,7 @@ DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
 
-# we have room.
+# we have space.
 HISTSIZE=100000
 
 # User configuration
@@ -114,15 +114,16 @@ alias rm='rm -i'
 alias vi='vim'
 alias less='less -X -N'
 
+case $(uname -s) in
+    Linux) ;;
+    FreeBSD) alias ls='\ls -F -G';;
+esac
+
 if [[ $OSTYPE =~ ^darwin ]] ; then
     export MANPATH="/opt/local/share/man:$MANPATH"
     export PATH="/opt/local/bin:/opt/local/sbin:/Users/tim/bin:/opt/local/libexec/gnubin:$PATH"
     alias file='file -h'
     plugins+="osx"
-elif [[ $OSTYPE =~ ^freebsd ]] ; then
-    alias ls='\ls -F -G'
-elif [[ -e "/etc/os-release" ]] ; then
-    plugins+="debian"
 fi
 
 chk_cmd "dircolors" && [[ -r ~/.dir_colors ]] && \
@@ -138,6 +139,7 @@ export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - in
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
+# start ibus.
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
