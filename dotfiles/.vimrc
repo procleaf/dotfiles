@@ -39,7 +39,7 @@ endif
 let g:solarized_termtrans = 1
 
 if has("gui_running")
-    if filereadable(vim_home . "/bundle/vim-colors-solarized")
+    if isdirectory(vim_home . "/bundle/vim-colors-solarized")
         colorscheme solarized
         set background=dark
     endif
