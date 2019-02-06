@@ -8,7 +8,7 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="maran"
+ZSH_THEME="cypher"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -106,6 +106,8 @@ alias h='history 20'
 alias irb='irb --simple-prompt'
 alias ls='ls --color=auto -F'
 alias la='ls -a'
+# not working.
+alias l.="ls -ld \.[\!\.]?*"
 alias ll='ls -l'
 alias lynx='lynx --accept_all_cookies'
 alias mpv='mpv --save-position-on-quit --no-audio-display'
@@ -139,6 +141,12 @@ export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - in
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
+export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
+
+export AF='/share/scripts/af'
+export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
+
+export PATH="$HOME/.local/bin:/usr/sbin:/sbin:$HOME/bin:${AF}/bin:$PATH"
 # start ibus.
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
@@ -148,17 +156,16 @@ export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 export PAGER='less -X'
 export EDITOR='vim'
 
-export PYTHONPATH="$HOME/automation_git/TIS-RAT"
-
 # start fetchmail in background if:
 #  - fetchmail is installed.
 #  - ~/.fetchmailrc is present & readable.
 #  - fetchmail is not running already.
-(chk_cmd "fetchmail" && [[ -r ~/.fetchmailrc ]]) && \
-    (pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L ~/.fetchmail.log)
+#(chk_cmd "fetchmail" && [[ -r ~/.fetchmailrc ]]) && \
+    #(pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L 
+#~/.fetchmail.log)
 
 # shows a full block blinking cursor on login(?) on linux console.
-[[ $TERM == 'linux' ]] && c || : # see 'alias' for 'c'.
+[[ $TERM == 'linux' ]] && c # see 'alias' for 'c'.
 
 function backward-kill-partial-word {
     local WORDCHARS="${WORDCHARS//[\/.]/}"
