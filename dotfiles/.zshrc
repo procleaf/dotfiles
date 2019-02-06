@@ -144,7 +144,7 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
-export PATH="/usr/sbin:/sbin:$HOME/bin:$PATH"
+export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 export PAGER='less -X'
 export EDITOR='vim'
 
