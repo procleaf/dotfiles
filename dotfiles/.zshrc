@@ -8,7 +8,6 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-#ZSH_THEME="random"
 ZSH_THEME="maran"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -96,6 +95,7 @@ chk_cmd () {
     command -v "$1" > /dev/null 2>&1 && return 0 || return 1
 }
 
+# starts a full block blinking cursor.
 alias c='echo -e "\033[?6c"'
 alias cp='cp -i'
 alias emacs='emacs -nw'
@@ -116,15 +116,16 @@ alias rm='rm -i'
 alias vi='vim'
 alias less='less -X -N'
 
+case $(uname -s) in
+    Linux) ;;
+    FreeBSD) alias ls='\ls -F -G';;
+esac
+
 if [[ $OSTYPE =~ ^darwin ]] ; then
     export MANPATH="/opt/local/share/man:$MANPATH"
     export PATH="/opt/local/bin:/opt/local/sbin:/Users/tim/bin:/opt/local/libexec/gnubin:$PATH"
     alias file='file -h'
     plugins+="osx"
-elif [[ $OSTYPE =~ ^freebsd ]] ; then
-    alias ls='\ls -F -G'
-elif [[ -e "/etc/os-release" ]] ; then
-    plugins+="debian"
 fi
 
 chk_cmd "dircolors" && [[ -r ~/.dir_colors ]] && \
@@ -145,6 +146,12 @@ export AF='/share/scripts/af'
 export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
 
 export PATH="$HOME/.local/bin:/usr/sbin:/sbin:$HOME/bin:${AF}/bin:$PATH"
+# start ibus.
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+export PATH="/usr/sbin:/sbin:$HOME/bin:$PATH"
 export PAGER='less -X'
 export EDITOR='vim'
 
