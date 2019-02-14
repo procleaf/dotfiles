@@ -144,18 +144,22 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
-export PATH="/usr/sbin:/sbin:$HOME/bin:$PATH"
+# Automation framework.
+export AF="/share/scripts/af"
+export PYTHONPATH="$AF/lib"
+
+export PATH="/usr/sbin:/sbin:$HOME/bin:$AF/bin:$PATH"
 export PAGER='less -X'
 export EDITOR='vim'
 
-export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 
 # start fetchmail in background if:
 #  - fetchmail is installed.
 #  - ~/.fetchmailrc is present & readable.
 #  - fetchmail is not running already.
-(chk_cmd "fetchmail" && [[ -r ~/.fetchmailrc ]]) && \
-    (pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L ~/.fetchmail.log)
+#(chk_cmd "fetchmail" && [[ -r ~/.fetchmailrc ]]) && \
+    #(pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L 
+#~/.fetchmail.log)
 
 # shows a full block blinking cursor on login(?) on linux console.
 [[ $TERM == 'linux' ]] && c || : # see 'alias' for 'c'.
