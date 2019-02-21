@@ -56,7 +56,7 @@ DISABLE_AUTO_UPDATE="true"
 
 source $ZSH/oh-my-zsh.sh
 
-# we have room.
+# we have space.
 HISTSIZE=100000
 
 # User configuration
@@ -95,6 +95,7 @@ chk_cmd () {
     command -v "$1" > /dev/null 2>&1 && return 0 || return 1
 }
 
+# starts a full block blinking cursor.
 alias c='echo -e "\033[?6c"'
 alias cp='cp -i'
 alias emacs='emacs -nw'
@@ -105,6 +106,8 @@ alias h='history 20'
 alias irb='irb --simple-prompt'
 alias ls='ls --color=auto -F'
 alias la='ls -a'
+# not working.
+alias l.="ls -ld \.[\!\.]?*"
 alias ll='ls -l'
 alias lynx='lynx --accept_all_cookies'
 alias mpv='mpv --save-position-on-quit --no-audio-display'
@@ -113,15 +116,16 @@ alias rm='rm -i'
 alias vi='vim'
 alias less='less -X -N'
 
+case $(uname -s) in
+    Linux) ;;
+    FreeBSD) alias ls='\ls -F -G';;
+esac
+
 if [[ $OSTYPE =~ ^darwin ]] ; then
     export MANPATH="/opt/local/share/man:$MANPATH"
     export PATH="/opt/local/bin:/opt/local/sbin:/Users/tim/bin:/opt/local/libexec/gnubin:$PATH"
     alias file='file -h'
     plugins+="osx"
-elif [[ $OSTYPE =~ ^freebsd ]] ; then
-    alias ls='\ls -F -G'
-elif [[ -e "/etc/os-release" ]] ; then
-    plugins+="debian"
 fi
 
 chk_cmd "dircolors" && [[ -r ~/.dir_colors ]] && \
@@ -138,20 +142,29 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
+
+export AF='/share/scripts/af'
+export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
+
+export PATH="$HOME/.local/bin:/usr/sbin:/sbin:$HOME/bin:${AF}/bin:$PATH"
+# start ibus.
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 export PAGER='less -X'
 export EDITOR='vim'
-
-export PYTHONPATH="$HOME/automation_git/TIS-RAT"
 
 # start fetchmail in background if:
 #  - fetchmail is installed.
 #  - ~/.fetchmailrc is present & readable.
 #  - fetchmail is not running already.
-(chk_cmd "fetchmail" && [[ -r ~/.fetchmailrc ]]) && \
-    (pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L ~/.fetchmail.log)
+#(chk_cmd "fetchmail" && [[ -r ~/.fetchmailrc ]]) && \
+    #(pgrep fetchmail > /dev/null 2>&1 || fetchmail -d 30 -L 
+#~/.fetchmail.log)
 
 # shows a full block blinking cursor on login(?) on linux console.
-[[ $TERM == 'linux' ]] && c || : # see 'alias' for 'c'.
+[[ $TERM == 'linux' ]] && c # see 'alias' for 'c'.
 
 function backward-kill-partial-word {
     local WORDCHARS="${WORDCHARS//[\/.]/}"

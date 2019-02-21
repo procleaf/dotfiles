@@ -24,6 +24,11 @@ cnoremap w!! w !sudo tee > /dev/null %
 " ------------------- MAPPING ------------------------
 
 " ------------------- Settings -----------------------
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 if has("win32")
     let vim_home = $HOME . '/vimfiles'
 else
@@ -39,7 +44,7 @@ endif
 let g:solarized_termtrans = 1
 
 if has("gui_running")
-    if filereadable(vim_home . "/bundle/vim-colors-solarized")
+    if isdirectory(vim_home . "/bundle/vim-colors-solarized")
         colorscheme solarized
         set background=dark
     endif
@@ -55,7 +60,8 @@ if has("gui_running")
 endif
 
 set number
-set relativenumber
+" gets slow on ruby files.
+"set relativenumber
 
 " Not sure what this does.
 set ttyfast
@@ -76,7 +82,7 @@ endif
 set laststatus=2
 set wildmode=longest,list:longest
 set showmatch
-set textwidth=72
+set textwidth=0
 set autoread
 set bs=2
 set nohlsearch
@@ -155,7 +161,7 @@ au BufEnter *
       \ endif
 
 function! CallInterpreter()
-    " update will write changes (only if there's any) to disk.  Cool.
+    " update will write changes (only if there's any) to disk.
     update
     if exists("b:interpreter")
         exec("!" . b:interpreter . " %")
