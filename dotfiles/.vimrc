@@ -27,6 +27,7 @@ cnoremap w!! w !sudo tee > /dev/null %
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType scss setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 if has("win32")
@@ -82,7 +83,11 @@ endif
 set laststatus=2
 set wildmode=longest,list:longest
 set showmatch
-set textwidth=0
+set textwidth=80
+" set wrapmargin=0
+" Disable auto linebreaks.
+set formatoptions-=t
+set formatoptions+=l
 set autoread
 set bs=2
 set nohlsearch
