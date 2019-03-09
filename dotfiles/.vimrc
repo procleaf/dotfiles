@@ -153,7 +153,6 @@ endif
 
 iab <expr> __dts strftime("%D")
 iab <expr> @@ 'yqm_leaf@163.com'
-iab <expr> @2 'qiming.ye@atlantiscomputing.com'
 
 " ------------------- Settings -----------------------
 
