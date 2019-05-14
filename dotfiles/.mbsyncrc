@@ -1,83 +1,45 @@
 # ---------------------------[ atlantis account ] -----------------------------
-IMAPAccount atlantis
-# Address to connect to
-Host outlook.office365.com
-User qiming.ye@atlantiscomputing.com
-# To store the password in an encrypted file use PassCmd instead of Pass
-PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/atlantis-imap/ { print $NF }'"
+#IMAPAccount atlantis
+## Address to connect to
+#Host outlook.office365.com
+#User qiming.ye@atlantiscomputing.com
+## To store the password in an encrypted file use PassCmd instead of Pass
+#PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/atlantis-imap/ { print $NF }'"
+##
+## Use SSL
+##SSLType IMAPS
+#UseIMAPS yes
+## The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+#CertificateFile ~/.mutt/outlook.office365.com.cert
 #
-# Use SSL
-#SSLType IMAPS
-UseIMAPS yes
-# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
-CertificateFile ~/.mutt/outlook.office365.com.cert
-
-IMAPStore atlantis-remote
-Account atlantis
-
-MaildirStore atlantis-local
-# The trailing "/" is important
-Path ~/Mail/atlantis/
-Inbox ~/Mail/atlantis/Inbox
-
-Channel atlantis
-Master :atlantis-remote:
-Slave :atlantis-local:
-# Exclude everything under the internal [Gmail] folder, except the interesting folders
-Patterns "INBOX" "Sent Items" "automation" "build" "git" "JIRA" "qa_test" "linux-kernel" "linux-newbie" "Deleted Items" "Drafts" "Junk Email" "Archive"
-# Or include everything
-#Patterns *
-# Automatically create missing mailboxes, both locally and on the server
-Create Both
-Expunge Both
-# Save the synchronization state files in the relevant directory
-SyncState *
-
-# ---------------------------[ account aliyun ] -----------------------------
-
-IMAPAccount aliyun
-# Address to connect to
-Host imap.aliyun.com
-User tim.ye0@aliyun.com
-PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/aliyun-imap/ { print $NF }'"
-# To store the password in an encrypted file use PassCmd instead of Pass
-# PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.mailpass.gpg"
+#IMAPStore atlantis-remote
+#Account atlantis
 #
-# Use SSL
-#SSLType IMAPS
-UseIMAPS yes
-# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
-CertificateFile ~/.mutt/imap.aliyun.com.cert
-
-IMAPStore aliyun-remote
-Account aliyun
-
-MaildirStore aliyun-local
-# The trailing "/" is important
-Path ~/Mail/aliyun/
-Inbox ~/Mail/aliyun/Inbox
-
-Channel aliyun
-Master :aliyun-remote:
-Slave :aliyun-local:
-# Exclude everything under the internal [Gmail] folder, except the interesting folders
-#Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
-# Or include everything
-Patterns *
-# Automatically create missing mailboxes, both locally and on the server
-Create Both
-Expunge Both
-# Save the synchronization state files in the relevant directory
-SyncState *
-
-
+#MaildirStore atlantis-local
+## The trailing "/" is important
+#Path ~/Mail/atlantis/
+#Inbox ~/Mail/atlantis/Inbox
+#
+#Channel atlantis
+#Master :atlantis-remote:
+#Slave :atlantis-local:
+## Exclude everything under the internal [Gmail] folder, except the interesting folders
+#Patterns "INBOX" "Sent Items" "automation" "build" "git" "JIRA" "qa_test" "linux-kernel" "linux-newbie" "Deleted Items" "Drafts" "Junk Email" "Archive"
+## Or include everything
+##Patterns *
+## Automatically create missing mailboxes, both locally and on the server
+#Create Both
+#Expunge Both
+## Save the synchronization state files in the relevant directory
+#SyncState *
 
 # ---------------------------[ account outlook ] -----------------------------
 
 IMAPAccount outlook
 # Address to connect to
-Host imap-mail.outlook.com
-User tim.ye0@outlook.com
+#Host imap-mail.outlook.com
+Host outlook.office365.com
+User qiming.ye0@outlook.com
 PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/outlook-imap/ { print $NF }'"
 #
 # Use SSL

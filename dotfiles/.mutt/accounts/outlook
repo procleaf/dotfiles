@@ -1,8 +1,8 @@
 #color status     white   green
 #color indicator  brightwhite   green
 
-set from                     = "tim.ye0@outlook.com"
-set realname                 = "Tim Ye"
+set from                     = "qiming.ye0@outlook.com"
+set realname                 = "Qiming Ye"
 set sendmail                 = "/usr/bin/msmtp -a outlook"
 set spoolfile                = "+outlook/Inbox"
 set record                   = "+outlook/Sent"

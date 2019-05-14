@@ -71,7 +71,7 @@ set menu_scroll
 set hidden_host
 
 set pager_stop
-alternates (tim.ye0@outlook.com|tim.ye0@aliyun.com|tim_ye_robot@163.com|qiming.ye@atlantiscomputing.com|qiye@sigma-rt.com|yqming@gmail.com)
+alternates (qiming.ye0@outlook.com|tim_ye_robot@163.com|yqming@gmail.com)
 #set pager_index_lines        = 10
 #set pager_context            = 3
 
@@ -102,11 +102,9 @@ macro editor ";" \Ct "query address."
 #macro index L "<enter-command>unset wait_key<enter><shell-escape>read -p 'notmuch query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
 #macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
-send2-hook "~f tim.ye0@outlook.com" "source ~/.mutt/accounts/outlook"
-send2-hook "~f qiming.ye@atlantiscomputing.com" "source ~/.mutt/accounts/atlantis"
+send2-hook "~f qiming.ye0@outlook.com" "source ~/.mutt/accounts/outlook"
 send2-hook "~f tim.ye0@aliyun.com" "source ~/.mutt/accounts/aliyun"
 send2-hook "~f yqiming@gmail.com" "source ~/.mutt/accounts/gmail"
-send2-hook "~f qiye@sigma-rt.com" "source ~/.mutt/accounts/sigma-rt"
 send2-hook "~f tim_ye_robot@163.com" "source ~/.mutt/accounts/163"
 
 macro index,pager ,1 '<enter-command>source ~/.mutt/accounts/atlantis<enter><change-folder>!<enter>'
@@ -122,16 +120,17 @@ macro index,pager ,6 '<enter-command>source ~/.mutt/accounts/gmail<enter><change
 #macro index,pager <esc>3 '<enter-command>source ~/.mutt/accounts/outlook<enter><change-folder>!<enter>'
 #macro index,pager <esc>4 '<enter-command>source ~/.mutt/accounts/aliyun<enter><change-folder>!<enter>'
 
-# Not sure these work.
-fcc-save-hook "~f tim.ye0@outlook.com" "=outlook/Sent"
-fcc-save-hook "~f qiming.ye@atlantiscomputing.com" "=atlantis/Sent\ Items"
+# Not sure how these work.
+fcc-save-hook "~f qiming.ye0@outlook.com" "=outlook/Sent"
 fcc-save-hook "~f tim.ye0@aliyun.com" "=aliyun/Sent"
 fcc-save-hook "~f tim_ye_robot@163.com" "=sent_163"
 
 #source $alias_file
 source ~/.mutt/mailboxes.common
+source ~/.mutt/mailboxes.home
 # source work/home muttrc base on hostname.
-source ~/.mutt/muttrc.`hostname`
+#source ~/.mutt/muttrc.`hostname`
+source ~/.mutt/accounts/outlook
 source ~/.mutt/mailing_lists
 source ~/.mutt/sidebar
 source ~/.mutt/binding
@@ -155,7 +154,7 @@ set charset="UTF-8"
 # # .........
 set send_charset="UTF-8"
 # # .........
-set locale="zh_CN.UTF-8"
+#set locale="zh_CN.UTF-8"
 # # .....................
 charset-hook ^us-ascii$ gb2312
 # # .....utf-8.............

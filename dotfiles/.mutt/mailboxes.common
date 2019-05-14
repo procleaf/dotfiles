@@ -8,6 +8,16 @@
 
 mailboxes        = +mairix_search
 
+mailboxes        = +outlook
+mailboxes        = +outlook/Inbox
+mailboxes        = +outlook/Sent
+mailboxes        = +outlook/Archive
+mailboxes        = +outlook/Deleted
+mailboxes        = +outlook/Drafts
+mailboxes        = +outlook/Junk
+#mailboxes        = +outlook/Notes
+#mailboxes        = +outlook/Outbox
+
 mailboxes        = +atlantis
 mailboxes        = +atlantis/Inbox
 mailboxes        = +atlantis/Sent\ Items
@@ -60,12 +70,4 @@ mailboxes        = +aliyun/163_inbox_bak
 mailboxes        = +aliyun/163_sent_bak
 #mailboxes        = +aliyun/Sent\ Items
 
-mailboxes        = +outlook
-mailboxes        = +outlook/Inbox
-mailboxes        = +outlook/Sent
-mailboxes        = +outlook/Archive
-mailboxes        = +outlook/Deleted
-mailboxes        = +outlook/Drafts
-mailboxes        = +outlook/Junk
-#mailboxes        = +outlook/Notes
-#mailboxes        = +outlook/Outbox
+
