@@ -78,7 +78,7 @@ export LC_ALL=en_US.UTF-8
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # run fetchmail on startup.
-[[ $(pidof fetchmail) ]] || fetchmail -d 60
+#[[ $(pidof fetchmail) ]] || fetchmail -d 60
 
 #umask 022
 

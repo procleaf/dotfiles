@@ -5,7 +5,7 @@ set from                     = "qiming.ye0@outlook.com"
 set realname                 = "Qiming Ye"
 set sendmail                 = "/usr/bin/msmtp -a outlook"
 set spoolfile                = "+outlook/Inbox"
-set record                   = "+outlook/Sent"
+#set record                   = "+outlook/Sent"
 set postponed                = "+outlook/Drafts"
 set trash                    = "+outlook/Deleted"
 

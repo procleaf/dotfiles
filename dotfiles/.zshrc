@@ -143,8 +143,11 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 
-export AF='/share/scripts/af'
-export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
+#export AF='/share/scripts/af'
+#export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
+
+export SHAMI='/home/qye/shami'
+export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI}")
 
 export PATH="$HOME/.local/bin:/usr/sbin:/sbin:$HOME/bin:${AF}/bin:$PATH"
 # start ibus.

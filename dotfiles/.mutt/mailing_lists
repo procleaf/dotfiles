@@ -1,15 +1,4 @@
 # mailing lists.
-lists dev-atlantis@atlantiscomputing.com
-subscribe dev-atlantis@atlantiscomputing.com
-lists dev_qa@atlantiscomputing.com
-subscribe dev_qa@atlantiscomputing.com
-subscribe all-atlantis@atlantiscomputing.com
-lists all-atlantis@atlantiscomputing.com
-
-lists cd-all-office@sigma-rt.com
-subscribe cd-all-office@sigma-rt.com
-lists cd-all@sigma-rt.com
-subscribe cd-all@sigma-rt.com
 
 lists ubuntu-users@lists.ubuntu.com
 subscribe ubuntu-users@lists.ubuntu.com
@@ -25,21 +14,7 @@ lists ruby-talk@ruby-lang.org
 subscribe ruby-talk@ruby-lang.org
 lists arch-general@archlinux.org
 subscribe arch-general@archlinux.org
-lists arch-announce@archlinux.org
-subscribe arch-announce@archlinux.org
-lists arch-dev-public@archlinux.org
-subscribe arch-dev-public@archlinux.org
-lists aur-dev@archlinux.org
-subscribe aur-dev@archlinux.org
 lists mutt-users@mutt.org
 subscribe mutt-users@mutt.org
-lists linux-kernel@vger.kernel.org
-subscribe linux-kernel@vger.kernel.org
-lists linux-newbie@vger.kernel.org
-subscribe linux-newbie@vger.kernel.org
-lists screen-users@gnu.org
-subscribe screen-users@gnu.org
-lists openstack@lists.openstack.org
-subscribe openstack@lists.openstack.org
 
 # vim: ft=muttrc
