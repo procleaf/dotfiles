@@ -3,6 +3,7 @@ set realname                 = "Qiming Ye"
 set sendmail                 = "/usr/bin/msmtp -a gmail"
 set spoolfile                = "+gmail/Inbox"
 #set record                   = "+gmail/sent"
+unset record
 set postponed                = "+gmail/draft"
 set trash                    = "+gmail/trash"
 

@@ -40,3 +40,4 @@ mailboxes     = +nixcraft
 mailboxes     = +subscribes
 mailboxes     = +test_mails
 mailboxes     = +ads
+mailboxes     = +to_emily

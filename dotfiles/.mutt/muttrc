@@ -23,6 +23,7 @@ set mailcap_path             = "~/.mutt/mailcap"
 set alias_file               = "~/.mutt/addressbook"
 set maildir_trash            = "yes"
 set editor                   = "vim --noplugin -c 'set comments+=nb:> nocp fo+=qaw bg=light tw=72 spell ft=mail'"
+#set editor                   = "emacs -nw"
 #set text_flowed              = "yes"
 set ispell                   = "/usr/bin/ispell"
 # Sometimes (if not all the time) doesn't work if some error occured.
@@ -30,7 +31,6 @@ set ispell                   = "/usr/bin/ispell"
 set sendmail_wait            = 60
 # some say this will make mutt response faster.
 set mail_check               = 60
-#set editor                   = "emacs -nw"
 set tmpdir                   = "~/.tmp"
 set pager_context            = 3
 set sort                     = threads
@@ -71,7 +71,7 @@ set menu_scroll
 set hidden_host
 
 set pager_stop
-alternates (qiming.ye0@outlook.com|tim_ye_robot@163.com|yqming@gmail.com)
+alternates (qiming.ye0@outlook.com|tim_ye_robot@163.com|yeqiming@gmail.com)
 #set pager_index_lines        = 10
 #set pager_context            = 3
 
@@ -91,7 +91,7 @@ set index_format    = "%3C  %Z  %[!%d %b %R] %?X?@& ? %?M?%2M&  ? %-20.20F  %s"'
 set attach_format   = "[%t][%1n][%4s] %T%d %> %m %M"
 
 #bind editor "^N" history-down
-macro generic ,a "<shell-escape>mbsync atlantis<enter>" "pull mail from account atlantis"
+#macro generic ,a "<shell-escape>mbsync atlantis<enter>" "pull mail from account atlantis"
 macro generic ,f "<shell-escape>mairix " "search via mairix"
 macro generic ,g "!mbsync -a^M" "Update through mbsync"
 #macro generic ,g '<shell-escape>fetchmail<enter>' "invoke fetchmail."
@@ -123,9 +123,9 @@ macro index,pager ,3 '<enter-command>source ~/.mutt/accounts/163<enter><change-f
 #macro index,pager <esc>4 '<enter-command>source ~/.mutt/accounts/aliyun<enter><change-folder>!<enter>'
 
 # Not sure how these work.
-fcc-save-hook "~f qiming.ye0@outlook.com" "=outlook/Sent"
-fcc-save-hook "~f tim.ye0@aliyun.com" "=aliyun/Sent"
-fcc-save-hook "~f tim_ye_robot@163.com" "=sent_163"
+#fcc-save-hook "~f qiming.ye0@outlook.com" "=outlook/Sent"
+#fcc-save-hook "~f tim.ye0@aliyun.com" "=aliyun/Sent"
+#fcc-save-hook "~f tim_ye_robot@163.com" "=sent_163"
 
 #source $alias_file
 source ~/.mutt/mailboxes.common
