@@ -2,12 +2,8 @@
 
 lists ubuntu-users@lists.ubuntu.com
 subscribe ubuntu-users@lists.ubuntu.com
-lists debian-laptop@lists.debian.org
-subscribe debian-laptop@lists.debian.org
 lists debian-user@lists.debian.org
 subscribe debian-user@lists.debian.org
-lists debian-devel@lists.debian.org
-subscribe debian-devel@lists.debian.org
 lists python-list@python.org
 subscribe python-list@python.org
 lists ruby-talk@ruby-lang.org

@@ -146,16 +146,17 @@ export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 #export AF='/share/scripts/af'
 #export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
 
-export SHAMI='/home/qye/shami'
-export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI}")
+export SHAMI_PY='/home/qye/shami'
+export SHAMI_C='/home/qye/codes/c/shami'
+export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI_PY}")
 
-export PATH="$HOME/.local/bin:/usr/sbin:/sbin:$HOME/bin:${AF}/bin:$PATH"
+export PATH="$HOME/.local/bin:/usr/sbin:/sbin:$HOME/bin:$PATH"
 # start ibus.
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
-export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
+#export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 export PAGER='less -X'
 export EDITOR='vim'
 

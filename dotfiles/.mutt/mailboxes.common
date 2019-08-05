@@ -24,6 +24,7 @@ mailboxes        = +gmail/all
 mailboxes        = +gmail/Documents
 mailboxes        = +gmail/Notes
 mailboxes        = +gmail/Normal\ mail
+mailboxes        = +gmail/trash
 
 #mailboxes        = +outlook
 #mailboxes        = +outlook/Inbox
