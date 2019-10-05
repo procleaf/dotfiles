@@ -146,7 +146,7 @@ export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 #export AF='/share/scripts/af'
 #export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
 
-export SHAMI_PY='/home/qye/shami'
+export SHAMI='/home/qye/shami'
 export SHAMI_C='/home/qye/codes/c/shami'
 export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI_PY}")
 

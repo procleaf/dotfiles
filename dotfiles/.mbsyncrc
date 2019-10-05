@@ -1,3 +1,43 @@
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+
+# ---------------------------[ account disroot ] -----------------------------
+IMAPAccount disroot
+# Address to connect to
+#Host imap-mail.outlook.com
+Host disroot.org
+User tim.ye@disroot.org
+PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/disroot-imap/ { print $NF }'"
+#
+# Use SSL
+SSLType IMAPS
+#UseIMAPS yes
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+#CertificateFile /etc/ssl/certs/ca-certificates.crt
+CertificateFile ~/.mutt/imap-mail.outlook.com.cert
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore disroot-remote
+Account disroot
+
+MaildirStore disroot-local
+# The trailing "/" is important
+Path ~/Mail/disroot/
+Inbox ~/Mail/disroot/Inbox
+
+Channel disroot
+Master :disroot-remote:
+Slave :disroot-local:
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+#Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Or include everything
+Patterns *
+
+# ---------------------------[ account disroot ] -----------------------------
+
 # ---------------------------[ atlantis account ] -----------------------------
 #IMAPAccount atlantis
 ## Address to connect to
@@ -34,11 +74,6 @@
 #SyncState *
 # ---------------------------[ atlantis account ] -----------------------------
 
-# Automatically create missing mailboxes, both locally and on the server
-Create Both
-Expunge Both
-## Save the synchronization state files in the relevant directory
-SyncState *
 # ---------------------------[ account outlook ] -----------------------------
 
 #IMAPAccount outlook
@@ -75,42 +110,49 @@ SyncState *
 
 # ---------------------------[ account gmail ] -----------------------------
 
-IMAPAccount gmail
-Host imap.gmail.com
-User yeqiming@gmail.com
-PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/gmail-imap/ { print $NF }'"
-SSLType IMAPS
-AuthMechs LOGIN
-#SubFolders Legacy
-
-IMAPStore gmail-remote
-Account gmail
-
-MaildirStore gmail-local
-Path ~/Mail/gmail/
-Inbox ~/Mail/gmail/Inbox
-
-#Channel gmail
+#IMAPAccount gmail
+#Host imap.gmail.com
+#User yeqiming@gmail.com
+#PassCmd "gpg -q --for-your-eyes-only --no-tty -d ~/.pass.gpg | awk '/gmail-imap/ { print $NF }'"
+#SSLType IMAPS
+#AuthMechs LOGIN
+##SubFolders Legacy
+#
+#IMAPStore gmail-remote
+#Account gmail
+#
+#MaildirStore gmail-local
+#Path ~/Mail/gmail/
+#Inbox ~/Mail/gmail/Inbox
+#
+##Channel gmail
+##Master :gmail-remote:
+##Slave :gmail-local:
+## Exclude everything under the internal [Gmail] folder, except the interesting 
+## folders
+##Patterns "INBOX" "Sent Mail" "debian-user" "archlinux-general" "Trash" "Drafts" 
+##"Spam" "Archive"
+#
+#Channel gmail-inbox
 #Master :gmail-remote:
 #Slave :gmail-local:
-# Exclude everything under the internal [Gmail] folder, except the interesting 
-# folders
-#Patterns "INBOX" "Sent Mail" "debian-user" "archlinux-general" "Trash" "Drafts" 
-#"Spam" "Archive"
+#Patterns "INBOX" "debian-user" "mutt-user" "ubuntu-user" "archlinux-general" "ruby-talk" "isync-dev" "Spam" "Trash" "Sent Mail" "python-list" "django-user" "vim-user"
+##Patterns *
 
-Channel gmail-inbox
-Master :gmail-remote:
-Slave :gmail-local:
-Patterns "INBOX" "debian-user" "mutt-user" "ubuntu-user" "archlinux-general" "ruby-talk" "isync-dev" "Spam" "Trash" "Sent Mail" "python-list" "django-user" "vim-user"
-#Patterns *
+#Group gmail
+#Channel gmail-inbox
+#Channel gmail-sent
+#Channel gmail-trash
+#Channel gmail-all
 
-Channel gmail-sent
-Master :gmail-remote:"[Gmail]/Sent Mail"
-Slave :gmail-local:sent
-
-Channel gmail-trash
-Master :gmail-remote:"[Gmail]/Trash"
-Slave :gmail-local:trash
+#
+#Channel gmail-sent
+#Master :gmail-remote:"[Gmail]/Sent Mail"
+#Slave :gmail-local:sent
+#
+#Channel gmail-trash
+#Master :gmail-remote:"[Gmail]/Trash"
+#Slave :gmail-local:trash
 
 #Channel gmail-all
 #Master :gmail-remote:"[Gmail]/All Mail"
@@ -146,11 +188,6 @@ Slave :gmail-local:trash
 #Slave :gmail-local:python-list
 #Patterns "python-list"
 
-Group gmail
-Channel gmail-inbox
-Channel gmail-sent
-Channel gmail-trash
-Channel gmail-all
 #Channel gmail-debian-user
 #Channel gmail-archlinux-general
 #Channel gmail-mutt-user

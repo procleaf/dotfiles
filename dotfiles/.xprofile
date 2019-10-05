@@ -1,0 +1,10 @@
+ibus-daemon &
+
+# set wallpaper.
+feh --bg-scale ~/_wall &
+
+# display time on dwm status bar.
+while : ; do
+    xsetroot -name "$(date +'%m-%d %H:%M %a')"
+    sleep 1m
+done &

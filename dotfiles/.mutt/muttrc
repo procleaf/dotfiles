@@ -23,7 +23,6 @@ set mailcap_path             = "~/.mutt/mailcap"
 set alias_file               = "~/.mutt/addressbook"
 set maildir_trash            = "yes"
 set editor                   = "vim --noplugin -c 'set comments+=nb:> nocp fo+=qaw bg=light tw=72 spell ft=mail'"
-#set editor                   = "emacs -nw"
 #set text_flowed              = "yes"
 set ispell                   = "/usr/bin/ispell"
 # Sometimes (if not all the time) doesn't work if some error occured.
@@ -71,7 +70,7 @@ set menu_scroll
 set hidden_host
 
 set pager_stop
-alternates (qiming.ye0@outlook.com|tim_ye_robot@163.com|yeqiming@gmail.com)
+alternates (tim.ye@disroot.org|qiming.ye0@outlook.com|yeqiming@gmail.com)
 #set pager_index_lines        = 10
 #set pager_context            = 3
 
@@ -108,13 +107,14 @@ macro editor ";" \Ct "query address."
 #macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
 send2-hook "~f qiming.ye0@outlook.com" "source ~/.mutt/accounts/outlook"
-send2-hook "~f tim.ye0@aliyun.com" "source ~/.mutt/accounts/aliyun"
 send2-hook "~f yqiming@gmail.com" "source ~/.mutt/accounts/gmail"
-send2-hook "~f tim_ye_robot@163.com" "source ~/.mutt/accounts/163"
+#send2-hook "~f tim.ye0@aliyun.com" "source ~/.mutt/accounts/aliyun"
+#send2-hook "~f tim_ye_robot@163.com" "source ~/.mutt/accounts/163"
 
-macro index,pager ,1 '<enter-command>source ~/.mutt/accounts/gmail<enter><change-folder>!<enter>'
-macro index,pager ,2 '<enter-command>source ~/.mutt/accounts/outlook<enter><change-folder>!<enter>'
-macro index,pager ,3 '<enter-command>source ~/.mutt/accounts/163<enter><change-folder>!<enter>'
+macro index,pager ,1 '<enter-command>source ~/.mutt/accounts/disroot<enter><change-folder>!<enter>'
+macro index,pager ,2 '<enter-command>source ~/.mutt/accounts/gmail<enter><change-folder>!<enter>'
+#macro index,pager ,3 '<enter-command>source ~/.mutt/accounts/outlook<enter><change-folder>!<enter>'
+#macro index,pager ,4 '<enter-command>source ~/.mutt/accounts/163<enter><change-folder>!<enter>'
 
 # Maybe the above bindings are enough.
 #macro index,pager <esc>1 '<enter-command>source ~/.mutt/accounts/atlantis<enter><change-folder>!<enter>'
@@ -133,7 +133,8 @@ source ~/.mutt/mailboxes.home
 # source work/home muttrc base on hostname.
 #source ~/.mutt/muttrc.`hostname`
 # Use Gmail for default account.
-source ~/.mutt/accounts/gmail
+#source ~/.mutt/accounts/gmail
+source ~/.mutt/accounts/disroot
 source ~/.mutt/mailing_lists
 source ~/.mutt/sidebar
 source ~/.mutt/binding

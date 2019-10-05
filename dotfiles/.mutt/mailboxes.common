@@ -8,6 +8,22 @@
 
 mailboxes        = +mairix_search
 
+mailboxes        = +disroot
+mailboxes        = +disroot/Inbox
+mailboxes        = +disroot/Sent
+mailboxes        = +disroot/debian-user
+mailboxes        = +disroot/archlinux-general
+mailboxes        = +disroot/mutt-user
+mailboxes        = +disroot/vim-user
+mailboxes        = +disroot/django-user
+mailboxes        = +disroot/ruby-talk
+mailboxes        = +disroot/python-list
+mailboxes        = +disroot/ubuntu-user
+mailboxes        = +disroot/isync-dev
+mailboxes        = +disroot/Trash
+mailboxes        = +disroot/Junk
+mailboxes        = +disroot/Archive
+
 mailboxes        = +gmail
 mailboxes        = +gmail/Inbox
 mailboxes        = +gmail/sent

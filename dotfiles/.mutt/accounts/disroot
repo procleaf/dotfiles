@@ -1,0 +1,10 @@
+set from                     = "tim.ye@disroot.org"
+set realname                 = "Qiming Ye"
+set sendmail                 = "/usr/bin/msmtp -a disroot"
+set spoolfile                = "+disroot/Inbox"
+set record                   = "+disroot/Sent"
+#unset record
+set postponed                = "+disroot/Draft"
+set trash                    = "+disroot/Trash"
+
+# vim:ft=muttrc
