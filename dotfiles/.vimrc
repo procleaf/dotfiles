@@ -4,6 +4,7 @@ let g:mapleader = ","
 " maybe should map <leader>w to :update<cr>.
 nnoremap <leader>w :w!<cr>
 nnoremap <leader>b :buffers<cr>
+nnoremap <leader>r :!clear && gcc % -o %< && ./%<<CR>
 nnoremap <leader>g :registers<cr>
 nnoremap <leader>e :e $MYVIMRC<cr>
 nnoremap <leader>s :source $MYVIMRC<cr>

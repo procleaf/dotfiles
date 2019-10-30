@@ -1,5 +1,5 @@
 set from                     = "tim.ye@disroot.org"
-set realname                 = "Qiming Ye"
+set realname                 = "Tim Ye"
 set sendmail                 = "/usr/bin/msmtp -a disroot"
 set spoolfile                = "+disroot/Inbox"
 set record                   = "+disroot/Sent"
