@@ -119,6 +119,7 @@ alias less='less -X -N'
 case $(uname -s) in
     Linux) ;;
     FreeBSD) alias ls='\ls -F -G';;
+    Darwin) alias ls='\ls -F -G';;
 esac
 
 if [[ $OSTYPE =~ ^darwin ]] ; then

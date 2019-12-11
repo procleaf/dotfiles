@@ -5,6 +5,7 @@
 logfile
 # mutt header_cache.
 header_cache
+header_cache-lock
 # ctags file.
 /tags
 
