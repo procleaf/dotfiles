@@ -118,7 +118,8 @@ alias less='less -X -N'
 
 case $(uname -s) in
     Linux) ;;
-    FreeBSD) alias ls='\ls -F -G';;
+    FreeBSD) alias ls='\ls -F -G'
+             export MANWIDTH="tty";;
     Darwin) alias ls='\ls -F -G';;
 esac
 

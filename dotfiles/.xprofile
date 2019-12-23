@@ -8,3 +8,4 @@ while : ; do
     xsetroot -name "$(date +'%m-%d %H:%M %a')"
     sleep 1m
 done &
+xcompmgr -c &
