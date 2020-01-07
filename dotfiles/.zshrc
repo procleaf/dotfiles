@@ -118,13 +118,14 @@ alias less='less -X -N'
 
 case $(uname -s) in
     Linux) ;;
-    FreeBSD) alias ls='\ls -F -G';;
+    FreeBSD) alias ls='\ls -F -G'
+             export MANWIDTH="tty";;
     Darwin) alias ls='\ls -F -G';;
 esac
 
 if [[ $OSTYPE =~ ^darwin ]] ; then
     export MANPATH="/opt/local/share/man:$MANPATH"
-    export PATH="/opt/local/bin:/opt/local/sbin:/Users/tim/bin:/opt/local/libexec/gnubin:$PATH"
+    export PATH="/opt/local/bin:/opt/local/sbin:${HOME}/bin:/opt/local/libexec/gnubin:$PATH"
     alias file='file -h'
     plugins+="osx"
 fi
@@ -142,7 +143,6 @@ export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - in
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 
 #export AF='/share/scripts/af'
 #export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
