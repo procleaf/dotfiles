@@ -1,3 +1,21 @@
+" ------------------- Vundle ------------------------
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+"
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Bundle "lepture/vim-jinja"
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" ------------------- Vundle ------------------------
+
 " ------------------- MAPPING ------------------------
 let mapleader = ","
 let g:mapleader = ","
@@ -25,7 +43,9 @@ cnoremap w!! w !sudo tee > /dev/null %
 " ------------------- MAPPING ------------------------
 
 " ------------------- Settings -----------------------
+"autocmd FileType python map <buffer> <leader>x :update<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType ruby setlocal re=1
 autocmd FileType eruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -130,9 +150,11 @@ set undoreload=10000
 
 "set mouse=a
 "set ttymouse=xterm2
+
 " ------------------- Settings -----------------------
 
-filetype plugin indent on
+" Required by Vundle to turn them off.
+"filetype plugin indent
 
 set foldmethod=indent
 set foldlevel=999
