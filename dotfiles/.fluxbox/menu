@@ -15,10 +15,10 @@
       [exec] (Google chrome proxy) {/usr/bin/google-chrome --proxy-server=10.21.121.2:3128}
 [end]
 [exec] (skype) {/usr/bin/skype}
-[exec] (liferea) {liferea}
+[exec] (netease-cloud-music) {netease-cloud-music}
 [exec] (ksnapshot) {ksnapshot}
 [exec] (thunar) {thunar}
 [exec] (qstardict) {/usr/bin/qstardict}
 [exec] (Xclock) {xclock -update 1}
-[include] (/etc/X11/fluxbox/fluxbox-menu)
+[include] (~/.fluxbox/menu.gen)
 [end]
