@@ -38,6 +38,13 @@ alias h='history 20'
 alias greenterm='setterm -foreground green -store'
 alias whiteterm='setterm -foreground white -store'
 
+case $(uname -s) in
+    OpenBSD) unalias ls
+             unalias grep
+             alias ls='ls -F'
+             alias la='ls -a';;
+esac
+
 # Set full block blinking cursor in console.
 #[[ $TERM == 'linux' ]] && c
 
@@ -62,7 +69,7 @@ export PS1="\[${GREEN}\][\u@\h \W]\$ \[${NO_COLOR}\]"
 export EDITOR='vi'
 export PAGER='less -X'
 export MAIL="~/Mail/inbox"
-# Don’t clear the screen after quitting a manual page.  Doesn't work well with
+# Don't clear the screen after quitting a manual page.  Doesn't work well with
 # GNU screen.
 #export MANPAGER='less -X';
 
@@ -80,7 +87,7 @@ export LC_ALL=en_US.UTF-8
 export PATH=$PATH:/sbin:/usr/sbin:$HOME/bin
 export PYTHONPATH=$PYTHONPATH:$HOME/scripts/python/
 
-[ -r ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
+#[ -r ~/.dir_colors ] && eval `dircolors ~/.dir_colors`
 
 # Release 'stty' bind 'ctrl-s', 'ctrl-q'.
 stty stop undef

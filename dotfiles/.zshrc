@@ -8,7 +8,7 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="cypher"
+#ZSH_THEME="cypher"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -54,10 +54,8 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git)
 
-source $ZSH/oh-my-zsh.sh
+#source $ZSH/oh-my-zsh.sh
 
-# we have space.
-HISTSIZE=100000
 
 # User configuration
 
@@ -88,6 +86,8 @@ HISTSIZE=100000
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+autoload -U colors && colors
+
 #
 # as this is getting to be called too often.
 #
@@ -96,6 +96,7 @@ chk_cmd () {
 }
 
 # starts a full block blinking cursor.
+
 alias c='echo -e "\033[?6c"'
 alias cp='cp -i'
 alias emacs='emacs -nw'
@@ -117,41 +118,52 @@ alias vi='vim'
 alias less='less -X -N'
 
 case $(uname -s) in
-    Linux) ;;
+    Linux)
+        # Man page color.
+        export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+        export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+        export LESS_TERMCAP_me=$'\E[0m'           # end mode
+        export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+        export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - info box
+        export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+        export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+        ;;
     FreeBSD) alias ls='\ls -F -G'
              export MANWIDTH="tty";;
-    Darwin) alias ls='\ls -F -G';;
+    Darwin) alias ls='\ls -F -G'
+            export MANPATH="/opt/local/share/man:$MANPATH"
+            export PATH="/opt/local/bin:/opt/local/sbin:${HOME}/bin:/opt/local/libexec/gnubin:$PATH"
+            alias file='file -h'
+            plugins+="osx"
+            ;;
+    OpenBSD) alias ls='\ls -F'
+             unalias grep;;
 esac
-
-if [[ $OSTYPE =~ ^darwin ]] ; then
-    export MANPATH="/opt/local/share/man:$MANPATH"
-    export PATH="/opt/local/bin:/opt/local/sbin:${HOME}/bin:/opt/local/libexec/gnubin:$PATH"
-    alias file='file -h'
-    plugins+="osx"
-fi
 
 chk_cmd "dircolors" && [[ -r ~/.dir_colors ]] && \
     eval `dircolors ~/.dir_colors`
 
 export LC_ALL=en_US.UTF-8
-# Man page color.
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 
-#export AF='/share/scripts/af'
-#export PYTHONPATH=$PYTHONPATH:'/share/scripts/af/lib'
+setopt INC_APPEND_HISTORY
+setopt HIST_FIND_NO_DUPS
+setopt -o emacs
+#setopt -o sharehistory
 
-export SHAMI='/home/qye/shami'
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
+export HISTTIMEFORMAT='[%F %T]'
+
+export SHAMI='/home/pi/shami'
 export SHAMI_C='/home/qye/codes/c/shami'
-export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI_PY}")
+export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI}")
 
 export PATH="$HOME/.local/bin:/usr/sbin:/sbin:$HOME/bin:$PATH"
+
+export PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
+
 # start ibus.
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
