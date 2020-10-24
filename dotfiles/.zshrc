@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME/.oh-my-zsh
+  #export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -54,7 +54,6 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git)
 
-#source $ZSH/oh-my-zsh.sh
 
 
 # User configuration
@@ -87,6 +86,11 @@ DISABLE_AUTO_UPDATE="true"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 autoload -U colors && colors
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
 
 #
 # as this is getting to be called too often.
@@ -127,10 +131,14 @@ case $(uname -s) in
         export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - info box
         export LESS_TERMCAP_ue=$'\E[0m'           # end underline
         export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+        # Use oh-my-zsh on Linux machines.
+        #source $ZSH/oh-my-zsh.sh
         ;;
     FreeBSD) alias ls='\ls -F -G'
              export MANWIDTH="tty";;
     Darwin) alias ls='\ls -F -G'
+            # Use oh-my-zsh on macos.
+            #source $ZSH/oh-my-zsh.sh
             export MANPATH="/opt/local/share/man:$MANPATH"
             export PATH="/opt/local/bin:/opt/local/sbin:${HOME}/bin:/opt/local/libexec/gnubin:$PATH"
             alias file='file -h'
@@ -192,3 +200,4 @@ zle -N backward-kill-partial-word
 for x in '^Xw' '^[^?' '^[^H'; do
     bindkey "$x" backward-kill-partial-word
 done; unset x
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

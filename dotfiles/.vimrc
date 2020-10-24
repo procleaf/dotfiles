@@ -1,3 +1,9 @@
+" ------------------- Powerline ------------------------
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+" ------------------- Powerline ------------------------
+
 " ------------------- Vundle ------------------------
 set nocompatible
 filetype off
@@ -90,7 +96,7 @@ set ttyfast
 " Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 "set list
-"set t_Co=256
+set t_Co=256
 set ruler
 set ai
 syntax on
@@ -102,6 +108,7 @@ if $TMUX == ''
     set clipboard+=unnamed
 endif
 set laststatus=2
+set showtabline=2
 set wildmode=longest,list:longest
 set showmatch
 set textwidth=80
