@@ -83,7 +83,7 @@ if has("gui_running")
     elseif has("win32")
         set guifont=Inconsolata:h12:cANSI
     elseif has("unix")
-        set guifont=Inconsolata\ for\ Powerline\ Medium\ 13
+        set guifont=Inconsolata\ 13
     end
 endif
 
