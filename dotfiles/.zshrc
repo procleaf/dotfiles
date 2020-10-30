@@ -23,7 +23,6 @@ alias h='history 20'
 alias irb='irb --simple-prompt'
 alias ls='ls --color=auto -F'
 alias la='ls -a'
-# not working.
 alias ll='ls -l'
 alias lynx='lynx --accept_all_cookies'
 alias mpv='mpv --save-position-on-quit --no-audio-display'
@@ -54,11 +53,6 @@ export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI}")
 
 export PS1="%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
-# start ibus.
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-
 #export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 export PAGER='less -X'
 export EDITOR='vim'
@@ -85,14 +79,10 @@ case $(uname -s) in
         export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - info box
         export LESS_TERMCAP_ue=$'\E[0m'           # end underline
         export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
-        # Use oh-my-zsh on Linux machines.
-        #source $ZSH/oh-my-zsh.sh
         ;;
     FreeBSD) alias ls='\ls -F -G'
              export MANWIDTH="tty";;
     Darwin) alias ls='\ls -F -G'
-            # Use oh-my-zsh on macos.
-            #source $ZSH/oh-my-zsh.sh
             export MANPATH="/opt/local/share/man:$MANPATH"
             export PATH="/opt/local/bin:/opt/local/sbin:${HOME}/bin:/opt/local/libexec/gnubin:$PATH"
             alias file='file -h'
@@ -102,4 +92,7 @@ case $(uname -s) in
              unalias grep;;
 esac
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# arch based distro.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null || \
+    # debian based distro.
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
