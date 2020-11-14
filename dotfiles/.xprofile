@@ -6,8 +6,8 @@ export XMODIFIERS=@im=fcitx
 feh --bg-scale ~/_wall &
 
 # display time on dwm status bar.
-while : ; do
-    xsetroot -name "$(date +'%m-%d %H:%M %a')"
-    sleep 1m
-done &
-xcompmgr -c &
+#while : ; do
+#    xsetroot -name "$(date +'%m-%d %H:%M %a')"
+#    sleep 1m
+#done &
+#xcompmgr -c &
