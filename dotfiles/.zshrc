@@ -48,7 +48,7 @@ export HISTSIZE=100000
 export SAVEHIST=100000
 export HISTTIMEFORMAT='[%F %T]'
 
-export SHAMI='/home/pi/shami'
+export SHAMI="$HOME/shami"
 export SHAMI_C='/home/qye/codes/c/shami'
 export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI}")
 
@@ -85,14 +85,11 @@ case $(uname -s) in
         export LESS_TERMCAP_so=$'\E[38;5;016m\E[48;5;220m'    # begin standout-mode - info box
         export LESS_TERMCAP_ue=$'\E[0m'           # end underline
         export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
-        # Use oh-my-zsh on Linux machines.
-        #source $ZSH/oh-my-zsh.sh
+        export PATH="$HOME/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH"
         ;;
     FreeBSD) alias ls='\ls -F -G'
              export MANWIDTH="tty";;
     Darwin) alias ls='\ls -F -G'
-            # Use oh-my-zsh on macos.
-            #source $ZSH/oh-my-zsh.sh
             export MANPATH="/opt/local/share/man:$MANPATH"
             export PATH="/opt/local/bin:/opt/local/sbin:${HOME}/bin:/opt/local/libexec/gnubin:$PATH"
             alias file='file -h'
