@@ -23,7 +23,6 @@ alias h='history 20'
 alias irb='irb --simple-prompt'
 alias ls='ls --color=auto -F'
 alias la='ls -a'
-# not working.
 alias ll='ls -l'
 alias lynx='lynx --accept_all_cookies'
 alias mpv='mpv --save-position-on-quit --no-audio-display'
@@ -53,11 +52,6 @@ export SHAMI_C='/home/qye/codes/c/shami'
 export PYTHONPATH=$PYTHONPATH:$(dirname "${SHAMI}")
 
 export PS1="%{$fg[cyan]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
-
-# start ibus.
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
 
 #export PATH="/usr/sbin:/sbin:$HOME/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH"
 export PAGER='less -X'
@@ -99,4 +93,7 @@ case $(uname -s) in
              unalias grep;;
 esac
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# arch based distro.
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null || \
+    # debian based distro.
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
